@@ -34,14 +34,14 @@ public class CoolLexer extends Lexer {
 
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"SingleLineComment", "BlockComment", "CLASS", "INHERITS", "NEW", "SELF_TYPE", 
-			"SELF", "INT", "STRING", "VOID", "BOOL", "TRUE", "FALSE", "ISVOID", "IF", 
+			"SingleLineComment", "BlockComment", "CLASS", "INHERITS", "NEW", "type",
+			"SELF", "integer", "STRING", "VOID", "BOOL", "TRUE", "FALSE", "ISVOID", "IF",
 			"THEN", "ELSE", "FI", "CASE", "OF", "ESAC", "WHILE", "LOOP", "POOL", 
-			"LET", "IN", "OP_ASSIGNMENT", "OP_ADD", "OP_SUB", "OP_MUL", "OP_DIV", 
-			"RELOP_LT", "RELOP_LE", "RELOP_EQ", "OP_NOT", "OP_INV", "SEMICOLON", 
-			"FORWARD_CURLY_BRACKET", "BACKWARD_CURLY_BRACKET", "FORWARD_BRACKET", 
-			"BACKWARD_BRACKET", "FORWARD_SQUARE_BRACKET", "BACKWARD_SQUARE_BRACKET", 
-			"COMMA", "COLON", "DOT", "AT", "NUM", "LITERAL", "ID", "WS", "ErrorChar"
+			"let", "in", "rarrow", "plus", "minus", "OP_MUL", "div",
+			"lt", "le", "equals", "not", "OP_INV", "semi",
+			"lbrace", "rbrace", "lparen",
+			"rparen", "FORWARD_SQUARE_BRACKET", "BACKWARD_SQUARE_BRACKET",
+			"COMMA", "COLON", "DOT", "AT", "NUM", "LITERAL", "identifier", "WS", "ErrorChar"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
