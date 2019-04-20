@@ -12,7 +12,6 @@ public class Main {
         /*
         CoolParser parser = new CoolParser(tokensStream);
         ParseTree tree = parser.program();
-
         System.out.println(tree.toStringTree(parser));
         */
     }

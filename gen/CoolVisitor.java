@@ -1,4 +1,4 @@
-// Generated from /home/amr/IdeaProjects/COOL Compiler/Cool.g4 by ANTLR 4.7.2
+// Generated from /media/aim/384548B632E10D23/work/college/4th year computer/2nd semester/Compilers/cool/project/COOL-Compiler/Cool.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**

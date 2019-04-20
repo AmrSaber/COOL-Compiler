@@ -1,4 +1,4 @@
-// Generated from /home/amr/IdeaProjects/COOL Compiler/Cool.g4 by ANTLR 4.7.2
+// Generated from /media/aim/384548B632E10D23/work/college/4th year computer/2nd semester/Compilers/cool/project/COOL-Compiler/Cool.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -18,12 +18,12 @@ public class CoolParser extends Parser {
 	public static final int
 		SingleLineComment=1, BlockComment=2, CLASS=3, INHERITS=4, NEW=5, SELF_TYPE=6, 
 		SELF=7, INT=8, STRING=9, VOID=10, BOOL=11, TRUE=12, FALSE=13, ISVOID=14, 
-		IF=15, THEN=16, ELSE=17, FI=18, CASE=19, OF=20, ESAC=21, WHILE=22, LOOP=23, 
-		POOL=24, LET=25, IN=26, OP_ASSIGNMENT=27, OP_ADD=28, OP_SUB=29, OP_MUL=30, 
-		OP_DIV=31, RELOP_LT=32, RELOP_LE=33, RELOP_EQ=34, OP_NOT=35, OP_INV=36, 
-		SEMICOLON=37, FORWARD_CURLY_BRACKET=38, BACKWARD_CURLY_BRACKET=39, FORWARD_BRACKET=40, 
-		BACKWARD_BRACKET=41, FORWARD_SQUARE_BRACKET=42, BACKWARD_SQUARE_BRACKET=43, 
-		COMMA=44, COLON=45, DOT=46, AT=47, NUM=48, LITERAL=49, ID=50, WS=51, ErrorChar=52;
+		IO=15, IF=16, THEN=17, ELSE=18, FI=19, CASE=20, OF=21, ESAC=22, WHILE=23, 
+		LOOP=24, POOL=25, LET=26, IN=27, OP_ASSIGNMENT=28, OP_ADD=29, OP_SUB=30, 
+		OP_MUL=31, OP_DIV=32, RELOP_LT=33, RELOP_LE=34, RELOP_EQ=35, OP_NOT=36, 
+		OP_INV=37, SEMICOLON=38, FORWARD_CURLY_BRACKET=39, BACKWARD_CURLY_BRACKET=40, 
+		FORWARD_BRACKET=41, BACKWARD_BRACKET=42, FORWARD_SQUARE_BRACKET=43, BACKWARD_SQUARE_BRACKET=44, 
+		COMMA=45, COLON=46, DOT=47, AT=48, NUM=49, LITERAL=50, ID=51, WS=52, ErrorChar=53;
 	public static final int
 		RULE_program = 0, RULE_variableDeclaration = 1, RULE_type = 2;
 	private static String[] makeRuleNames() {
@@ -37,10 +37,10 @@ public class CoolParser extends Parser {
 		return new String[] {
 			null, null, null, "'class'", "'inherits'", "'new'", "'SELF_TYPE'", "'self'", 
 			"'Int'", "'String'", "'Void'", "'Bool'", "'true'", "'false'", "'isvoid'", 
-			"'if'", "'then'", "'else'", "'fi'", "'case'", "'of'", "'esac'", "'while'", 
-			"'loop'", "'pool'", "'let'", "'in'", "'<-'", "'+'", "'-'", "'*'", "'/'", 
-			"'<'", "'<='", "'='", "'not'", "'~'", "';'", "'{'", "'}'", "'('", "')'", 
-			"'['", "']'", "','", "':'", "'.'", "'@'"
+			null, "'if'", "'then'", "'else'", "'fi'", "'case'", "'of'", "'esac'", 
+			"'while'", "'loop'", "'pool'", "'let'", "'in'", "'<-'", "'+'", "'-'", 
+			"'*'", "'/'", "'<'", "'<='", "'='", "'not'", "'~'", "';'", "'{'", "'}'", 
+			"'('", "')'", "'['", "']'", "','", "':'", "'.'", "'@'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -48,7 +48,7 @@ public class CoolParser extends Parser {
 		return new String[] {
 			null, "SingleLineComment", "BlockComment", "CLASS", "INHERITS", "NEW", 
 			"SELF_TYPE", "SELF", "INT", "STRING", "VOID", "BOOL", "TRUE", "FALSE", 
-			"ISVOID", "IF", "THEN", "ELSE", "FI", "CASE", "OF", "ESAC", "WHILE", 
+			"ISVOID", "IO", "IF", "THEN", "ELSE", "FI", "CASE", "OF", "ESAC", "WHILE", 
 			"LOOP", "POOL", "LET", "IN", "OP_ASSIGNMENT", "OP_ADD", "OP_SUB", "OP_MUL", 
 			"OP_DIV", "RELOP_LT", "RELOP_LE", "RELOP_EQ", "OP_NOT", "OP_INV", "SEMICOLON", 
 			"FORWARD_CURLY_BRACKET", "BACKWARD_CURLY_BRACKET", "FORWARD_BRACKET", 
@@ -213,6 +213,7 @@ public class CoolParser extends Parser {
 			case STRING:
 			case VOID:
 			case BOOL:
+			case IO:
 				{
 				setState(14);
 				type();
@@ -247,6 +248,7 @@ public class CoolParser extends Parser {
 		public TerminalNode STRING() { return getToken(CoolParser.STRING, 0); }
 		public TerminalNode VOID() { return getToken(CoolParser.VOID, 0); }
 		public TerminalNode BOOL() { return getToken(CoolParser.BOOL, 0); }
+		public TerminalNode IO() { return getToken(CoolParser.IO, 0); }
 		public TypeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -275,7 +277,7 @@ public class CoolParser extends Parser {
 			{
 			setState(20);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << STRING) | (1L << VOID) | (1L << BOOL))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << STRING) | (1L << VOID) | (1L << BOOL) | (1L << IO))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -297,13 +299,13 @@ public class CoolParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\66\31\4\2\t\2\4\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\67\31\4\2\t\2\4\3"+
 		"\t\3\4\4\t\4\3\2\7\2\n\n\2\f\2\16\2\r\13\2\3\3\3\3\3\3\3\3\5\3\23\n\3"+
-		"\3\3\3\3\3\4\3\4\3\4\2\2\5\2\4\6\2\3\3\2\n\r\2\27\2\13\3\2\2\2\4\16\3"+
-		"\2\2\2\6\26\3\2\2\2\b\n\5\4\3\2\t\b\3\2\2\2\n\r\3\2\2\2\13\t\3\2\2\2\13"+
-		"\f\3\2\2\2\f\3\3\2\2\2\r\13\3\2\2\2\16\17\7\64\2\2\17\22\7/\2\2\20\23"+
-		"\5\6\4\2\21\23\7\64\2\2\22\20\3\2\2\2\22\21\3\2\2\2\23\24\3\2\2\2\24\25"+
-		"\7\'\2\2\25\5\3\2\2\2\26\27\t\2\2\2\27\7\3\2\2\2\4\13\22";
+		"\3\3\3\3\3\4\3\4\3\4\2\2\5\2\4\6\2\3\4\2\n\r\21\21\2\27\2\13\3\2\2\2\4"+
+		"\16\3\2\2\2\6\26\3\2\2\2\b\n\5\4\3\2\t\b\3\2\2\2\n\r\3\2\2\2\13\t\3\2"+
+		"\2\2\13\f\3\2\2\2\f\3\3\2\2\2\r\13\3\2\2\2\16\17\7\65\2\2\17\22\7\60\2"+
+		"\2\20\23\5\6\4\2\21\23\7\65\2\2\22\20\3\2\2\2\22\21\3\2\2\2\23\24\3\2"+
+		"\2\2\24\25\7(\2\2\25\5\3\2\2\2\26\27\t\2\2\2\27\7\3\2\2\2\4\13\22";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
