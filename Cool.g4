@@ -6,7 +6,7 @@ program:
 
 // class definition
 classDefiniton:
-    CLASS ID (INHERITS type | ) OPENING_CURLY_BRACKET
+    CLASS ID (INHERITS (type|ID) | ) OPENING_CURLY_BRACKET
         variableDeclaration*
         featureDefinition*
     CLOSING_CURLY_BRACKET SEMICOLON;
@@ -27,9 +27,8 @@ expr_: (OP_ADD|OP_SUB|RELOP_EQ|RELOP_LE|RELOP_LT) term expr_ | ;
 term: value term_;
 term_: (OP_MUL|OP_DIV) value term_|;
 
-value: assignmentStmt
+value: (assignmentStmt
    | featureCall
-   | memberFeatureCall
    | ifStmt
    | caseStmt
    | letStmt
@@ -45,13 +44,22 @@ value: assignmentStmt
    | NUM
    | LITERAL
    | TRUE
-   | FALSE
+   | FALSE) (memberAccess_ |)
    ;
 
-assignmentStmt: ID OP_ASSIGNMENT expr;
+assignmentStmt:
+    ID OP_ASSIGNMENT expr
+    ;
 
-featureCall: ID OPENING_BRACKET (exprList|) CLOSING_BRACKET;
-memberFeatureCall: ID (AT (type|ID) | ) DOT featureCall;
+featureCall:
+    ID OPENING_BRACKET (exprList|) CLOSING_BRACKET
+    ;
+
+memberAccess_ : (AT (type|ID) | ) DOT (featureCall| ID) memberAccess_ | ;
+
+memberAcess:
+    ID (AT (type|ID) | ) DOT (featureCall| ID)
+    ;
 
 ifStmt :
     IF expr THEN
@@ -84,11 +92,21 @@ block:
     CLOSING_CURLY_BRACKET
     ;
 
-newObject: NEW (type|ID);
-isvoidExpr: ISVOID expr;
-invrseExpr: OP_INV expr;
-notExpr: OP_NOT expr;
+newObject:
+    NEW (type|ID)
+    ;
 
+isvoidExpr:
+    ISVOID expr
+    ;
+
+invrseExpr:
+    OP_INV expr
+    ;
+
+notExpr:
+    OP_NOT expr
+    ;
 
 exprList: expr exprList_;
 exprList_: COMMA expr exprList_ |;
