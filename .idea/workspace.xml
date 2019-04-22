@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43009ff6-e842-4713-b31a-70f67aa7b59d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/COOL-Compiler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/COOL-Compiler.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cool.g4" beforeDir="false" afterPath="$PROJECT_DIR$/Cool.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Cool.interp" beforeDir="false" afterPath="$PROJECT_DIR$/gen/Cool.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/Cool.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/gen/Cool.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/CoolBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/CoolBaseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/CoolBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/CoolBaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/CoolLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/gen/CoolLexer.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/CoolLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/CoolLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/CoolLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/gen/CoolLexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/CoolListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/CoolListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/CoolParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/CoolParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gen/CoolVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/CoolVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -49,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Cool.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-342">
-              <caret line="151" column="58" selection-start-line="151" selection-start-column="58" selection-end-line="151" selection-end-column="58" />
+            <state relative-caret-position="75">
+              <caret line="185" column="32" selection-start-line="185" selection-start-column="32" selection-end-line="185" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -58,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cool_source/good.cl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="18" lean-forward="true" selection-end-line="78" selection-end-column="2" />
+            <state relative-caret-position="72">
+              <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -91,8 +70,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="131" />
-    <option name="y" value="80" />
+    <option name="x" value="155" />
+    <option name="y" value="85" />
     <option name="width" value="1211" />
     <option name="height" value="635" />
   </component>
@@ -101,6 +80,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -122,7 +102,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -185,16 +164,18 @@
       <updated>1555514619918</updated>
       <workItem from="1555514625404" duration="13116000" />
       <workItem from="1555717166345" duration="3779000" />
+      <workItem from="1555953524467" duration="4311000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16895000" />
+    <option name="totallyTimeSpent" value="21206000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="131" y="80" width="1211" height="635" extended-state="0" />
+    <frame x="155" y="85" width="1211" height="635" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18111588" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18454936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -215,7 +196,7 @@
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info active="true" anchor="bottom" id="ANTLR Preview" order="14" visible="true" weight="0.527668" />
+      <window_info active="true" anchor="bottom" id="ANTLR Preview" order="14" visible="true" weight="0.6403162" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -232,24 +213,24 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Runner.kts" />
-    <entry file="file://$PROJECT_DIR$/cool_source/good.cl">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="18" lean-forward="true" selection-end-line="78" selection-end-column="2" />
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/cool_source/good.cl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="72">
+          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Cool.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342">
-          <caret line="151" column="58" selection-start-line="151" selection-start-column="58" selection-end-line="151" selection-end-column="58" />
+        <state relative-caret-position="75">
+          <caret line="185" column="32" selection-start-line="185" selection-start-column="32" selection-end-line="185" selection-end-column="32" />
         </state>
       </provider>
     </entry>

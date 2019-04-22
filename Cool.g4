@@ -1,14 +1,22 @@
 grammar Cool;
 
-program: classDefiniton*;
+program:
+    classDefiniton*
+    ;
 
 // class definition
-classDefiniton: CLASS ID (INHERITS type | ) OPENING_CURLY_BRACKET featureDefinition* CLOSING_CURLY_BRACKET;
+classDefiniton:
+    CLASS ID (INHERITS type | ) OPENING_CURLY_BRACKET
+        variableDeclaration*
+        featureDefinition*
+    CLOSING_CURLY_BRACKET SEMICOLON;
 
 // method definition
 featureDefinition:
-    ID OPENING_BRACKET (formalsList|) CLOSING_BRACKET COLON (ID|type) OPENING_CURLY_BRACKET expr CLOSING_CURLY_BRACKET SEMICOLON
-    | ID COLON (type|ID) (OP_ASSIGNMENT expr |) SEMICOLON;
+    ID OPENING_BRACKET (formalsList|) CLOSING_BRACKET COLON (ID|type) OPENING_CURLY_BRACKET
+        expr
+    CLOSING_CURLY_BRACKET SEMICOLON
+  | ID COLON (type|ID) (OP_ASSIGNMENT expr |) SEMICOLON;
 
 
 // statements
@@ -32,6 +40,7 @@ value: assignmentStmt
    | notExpr
    | invrseExpr
    | OPENING_BRACKET expr CLOSING_BRACKET
+   | SELF
    | ID
    | NUM
    | LITERAL
@@ -44,13 +53,37 @@ assignmentStmt: ID OP_ASSIGNMENT expr;
 featureCall: ID OPENING_BRACKET (exprList|) CLOSING_BRACKET;
 memberFeatureCall: ID (AT (type|ID) | ) DOT featureCall;
 
-ifStmt : IF expr THEN expr (ELSE expr | ) FI;
-caseStmt: CASE expr OF (ID COLON (type|ID) '=>' expr SEMICOLON)+ ESAC;
+ifStmt :
+    IF expr THEN
+        expr
+    (ELSE
+        expr | )
+    FI
+    ;
 
-letStmt: LET (ID COLON (type|ID) OP_ASSIGNMENT expr?)+ IN expr;
+caseStmt:
+    CASE expr OF
+        (ID COLON (type|ID) '=>' expr SEMICOLON)+
+    ESAC
+    ;
 
-whileStmt: WHILE expr LOOP expr POOL;
-block: OPENING_CURLY_BRACKET (expr SEMICOLON)+ CLOSING_CURLY_BRACKET;
+letStmt:
+    LET (ID COLON (type|ID) OP_ASSIGNMENT expr?)+ IN
+        expr
+    ;
+
+whileStmt:
+    WHILE expr LOOP
+        expr
+    POOL
+    ;
+
+block:
+    OPENING_CURLY_BRACKET
+        (expr SEMICOLON)+
+    CLOSING_CURLY_BRACKET
+    ;
+
 newObject: NEW (type|ID);
 isvoidExpr: ISVOID expr;
 invrseExpr: OP_INV expr;
@@ -65,7 +98,7 @@ formalsList: formal formalsList_;
 formalsList_: COMMA formal formalsList_ | ;
 
 
-variableDeclaration:ID COLON (type|ID) SEMICOLON;
+variableDeclaration:ID COLON (type|ID) ( OP_ASSIGNMENT expr |) SEMICOLON;
 
 
 
@@ -73,11 +106,11 @@ variableDeclaration:ID COLON (type|ID) SEMICOLON;
 
 // keywords
 // OOP
-CLASS: 'class';
-INHERITS: 'inherits';
-NEW: 'new';
-SELF_TYPE: 'SELF_TYPE';
-SELF: 'self';
+CLASS: C L A S S;
+INHERITS: I N H E R I T S;
+NEW: N E W;
+SELF_TYPE: S E L F '_' T Y P E;
+SELF: S E L F;
 
 
 // types
@@ -88,27 +121,27 @@ type:INT
     | IO
     | SELF_TYPE;
 
-INT: 'Int';
-STRING: 'String';
-VOID: 'Void';
-BOOL: 'Bool';
-TRUE: 'true';
-FALSE: 'false';
-ISVOID: 'isvoid';
+INT: I N T;
+STRING: S T R I N G;
+VOID: V O I D;
+BOOL: B O O L;
+TRUE: 't' R U E;
+FALSE: 'f' A L S E;
+ISVOID: I S V O I D;
 IO: I O;
 // conditional
-IF: 'if';
-THEN: 'then';
-ELSE: 'else';
-FI: 'fi';
+IF: I F;
+THEN: T H E N;
+ELSE: E L S E;
+FI: F I;
 
-CASE: 'case';
-OF: 'of';
-ESAC: 'esac';
+CASE: C A S E;
+OF: O F;
+ESAC: E S A C;
 
 // loops
-WHILE: 'while';
-LOOP: 'loop';
+WHILE: W H I L E;
+LOOP: L O O P;
 POOL:  P O O L;
 
 
@@ -149,8 +182,8 @@ LITERAL: '"' ~["\n\r]* '"';
 ID: [a-zA-Z_][a-zA-Z0-9_]*;
 
 WS: [ \t\r\n]+ -> skip;
-SINGLELINECOMMENT: SINGLELINECOMMENTSTART[ \t.]*('\n'|EOF) -> skip;
-BlockComment: '*'[ \t.]*'*' -> skip;
+SINGLELINECOMMENT  : '--' .*? '\n' -> channel(HIDDEN) ;
+BlockComment: '*' (BlockComment|.)*? '*' -> channel(HIDDEN);
 
 ErrorChar : .;
 
