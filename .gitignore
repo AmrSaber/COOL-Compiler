@@ -4,3 +4,6 @@ out
 
 // output of lexer
 *-lex
+
+// output of parser
+*-cst

@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Lexer {
     private CoolLexer lexer;
+    private CommonTokenStream tokensStream;
     private List<Token> tokens;
     private List<Token> errors;
     private List<String> outTokens;
@@ -18,8 +19,11 @@ public class Lexer {
     public Lexer(String fileName)throws IOException {
         CharStream charStream = CharStreams.fromFileName(fileName);
         lexer = new CoolLexer(charStream);
-        CommonTokenStream tokensStream = new CommonTokenStream(lexer);
+        tokensStream = new CommonTokenStream(lexer);
         tokensStream.fill();
+//        CoolParser parser = new CoolParser(tokensStream);
+//        CoolParser.ProgramContext program = parser.program();
+//        System.out.println(program.toStringTree(parser));
         tokens = tokensStream.getTokens();
         lex();
     }
@@ -27,6 +31,8 @@ public class Lexer {
     public List<String> getTokens(){
         return outTokens;
     }
+
+    public CommonTokenStream getTokensStream() { return  tokensStream; }
 
     public List<String> getTokens(String outputFile) throws IOException{
         BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
