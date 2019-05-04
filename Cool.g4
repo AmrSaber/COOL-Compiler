@@ -79,7 +79,7 @@ caseStmt:
     ;
 
 letStmt:
-    LET ID COLON (type|ID) OP_ASSIGNMENT expr? (COMMA ID COLON (type|ID) OP_ASSIGNMENT expr?)*  IN
+    LET ID COLON (type|ID) (OP_ASSIGNMENT expr)? (COMMA ID COLON (type|ID) (OP_ASSIGNMENT expr)?)*  IN
         expr
     ;
 
