@@ -2,6 +2,7 @@ package translation;
 
 import org.antlr.v4.runtime.tree.ParseTree;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import translation.translators.IfStmtTranslator;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -15,7 +16,12 @@ public class TranslationHandler {
     private static int nextLabel = 0;
 
     public static void translate(ParseTree tree) {
-        throw new NotImplementedException();
+        new IfStmtTranslator(tree).generate();
+        try {
+            output_stream.close();
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -25,6 +31,7 @@ public class TranslationHandler {
     public static void write(String s) {
         try{
             output_stream.write(s);
+            output_stream.write("\n");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
