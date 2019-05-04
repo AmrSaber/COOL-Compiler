@@ -26,6 +26,7 @@ public class CaseStmtTranslator extends Translator {
             String childIType = parseTree.getChild(i+2).getText();
             TranslationHandler.write("IFFALSE " + myType.toString() + " = " + childIType + " GOTO " + nextLabel);
             Temp childITemp = new ExprTranslator(parseTree.getChild(i+4)).generate();
+            TranslationHandler.write(myTemp.toString() + " := " + childITemp.toString());
             TranslationHandler.write("GOTO " + afterAll);
             TranslationHandler.write(nextLabel + ":");
             childITemp.release();
