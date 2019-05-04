@@ -255,18 +255,6 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExprList_(CoolParser.ExprList_Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExprList_(CoolParser.ExprList_Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterFormal(CoolParser.FormalContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -286,18 +274,6 @@ public class CoolBaseListener implements CoolListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFormalsList(CoolParser.FormalsListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFormalsList_(CoolParser.FormalsList_Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFormalsList_(CoolParser.FormalsList_Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

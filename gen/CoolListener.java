@@ -229,16 +229,6 @@ public interface CoolListener extends ParseTreeListener {
 	 */
 	void exitExprList(CoolParser.ExprListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CoolParser#exprList_}.
-	 * @param ctx the parse tree
-	 */
-	void enterExprList_(CoolParser.ExprList_Context ctx);
-	/**
-	 * Exit a parse tree produced by {@link CoolParser#exprList_}.
-	 * @param ctx the parse tree
-	 */
-	void exitExprList_(CoolParser.ExprList_Context ctx);
-	/**
 	 * Enter a parse tree produced by {@link CoolParser#formal}.
 	 * @param ctx the parse tree
 	 */
@@ -258,16 +248,6 @@ public interface CoolListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFormalsList(CoolParser.FormalsListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CoolParser#formalsList_}.
-	 * @param ctx the parse tree
-	 */
-	void enterFormalsList_(CoolParser.FormalsList_Context ctx);
-	/**
-	 * Exit a parse tree produced by {@link CoolParser#formalsList_}.
-	 * @param ctx the parse tree
-	 */
-	void exitFormalsList_(CoolParser.FormalsList_Context ctx);
 	/**
 	 * Enter a parse tree produced by {@link CoolParser#variableDeclaration}.
 	 * @param ctx the parse tree

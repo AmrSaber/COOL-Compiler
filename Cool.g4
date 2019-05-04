@@ -118,13 +118,10 @@ notExpr:
     # notExprRule
     ;
 
-exprList: expr exprList_;
-exprList_: COMMA expr exprList_ |;
+exprList: exprList COMMA expr | expr;
 
 formal: ID COLON (type|ID);
-formalsList: formal formalsList_;
-formalsList_: COMMA formal formalsList_ | ;
-
+formalsList: formalsList COMMA formal | formal;
 
 variableDeclaration:ID COLON (type|ID) ( OP_ASSIGNMENT expr |) SEMICOLON;
 

@@ -141,12 +141,6 @@ public interface CoolVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExprList(CoolParser.ExprListContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#exprList_}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExprList_(CoolParser.ExprList_Context ctx);
-	/**
 	 * Visit a parse tree produced by {@link CoolParser#formal}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -158,12 +152,6 @@ public interface CoolVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFormalsList(CoolParser.FormalsListContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link CoolParser#formalsList_}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFormalsList_(CoolParser.FormalsList_Context ctx);
 	/**
 	 * Visit a parse tree produced by {@link CoolParser#variableDeclaration}.
 	 * @param ctx the parse tree
