@@ -1,10 +1,18 @@
 package translation;
 
+import org.antlr.v4.runtime.tree.ParseTree;
+
 /**
  * this is an abstract class that translators for grammar rules should extend
  **/
 
 abstract public class Translator {
+
+    protected ParseTree parseTree;
+    public Translator(ParseTree parseTree) {
+        this.parseTree = parseTree;
+    }
+
     /**
      * this function should be implemented for all grammar rules
      * for each grammar rule it supposed to:
