@@ -8,6 +8,11 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public class ScopeHandler {
 
+    // private constructor to forbid object creation
+    private ScopeHandler() {
+
+    }
+
     private static List<Map<String, Reference>> scopes;
 
     static {
