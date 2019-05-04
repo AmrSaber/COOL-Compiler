@@ -20,7 +20,7 @@ featureDefinition:
     ID OPENING_BRACKET (formalsList|) CLOSING_BRACKET COLON (ID|type) OPENING_CURLY_BRACKET
         expr
     CLOSING_CURLY_BRACKET SEMICOLON
-  | ID COLON (type|ID) (OP_ASSIGNMENT expr |) SEMICOLON;
+    ;
 
 // statements
 expr: expr op=(OP_ADD|OP_SUB|RELOP_EQ|RELOP_LE|RELOP_LT) term | term;
@@ -119,6 +119,7 @@ notExpr:
     OP_NOT expr
     # notExprRule
     ;
+
 
 exprList: exprList COMMA expr | expr;
 
