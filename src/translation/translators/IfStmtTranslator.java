@@ -21,18 +21,19 @@ public class IfStmtTranslator extends Translator {
         Temp child1Temp = new ExprTranslator(parseTree.getChild(1)).generate();
         TranslationHandler.write("IFFALSE " + child1Temp.toString() + " GOTO " + elseLabel);
         Temp child2Temp = new ExprTranslator(parseTree.getChild(3)).generate();
-        child1Temp.release();
+        TranslationHandler.write(myTemp.toString() + " := " + child2Temp.toString());
         if(parseTree.getChildCount() > 5){
             TranslationHandler.write("GOTO " + afterLabel);
             TranslationHandler.write(elseLabel + ":");
             Temp child3Temp = new ExprTranslator(parseTree.getChild(5)).generate();
+            TranslationHandler.write(myTemp.toString() + " := " + child3Temp.toString());
             TranslationHandler.write(afterLabel + ":");
-
-            return child3Temp;
+            child3Temp.release();
         }else{
             TranslationHandler.write(elseLabel + ":");
-
-            return child2Temp;
         }
+        child1Temp.release();
+        child2Temp.release();
+        return myTemp;
     }
 }
