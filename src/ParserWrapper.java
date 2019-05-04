@@ -35,9 +35,9 @@ public class ParserWrapper {
         }
     }
 
-    public void parse() {
+    public ParseTree parse() {
         coolParser.addParseListener(new CoolBaseListener());
-        coolParser.program();
+        return coolParser.ifStmt();
     }
 
     public void dfs() {
