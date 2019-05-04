@@ -21,9 +21,6 @@ public class Lexer {
         lexer = new CoolLexer(charStream);
         tokensStream = new CommonTokenStream(lexer);
         tokensStream.fill();
-//        CoolParser parser = new CoolParser(tokensStream);
-//        CoolParser.ProgramContext program = parser.program();
-//        System.out.println(program.toStringTree(parser));
         tokens = tokensStream.getTokens();
         lex();
     }

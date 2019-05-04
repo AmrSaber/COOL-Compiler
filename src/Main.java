@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) throws Exception{
-        String srcFile = "cool_source/bad_parse.cl";
+        String srcFile = "cool_source/good.cl";
         if(args.length >= 1)    srcFile = args[0];
 
         Lexer lexer = new Lexer(srcFile);
@@ -9,8 +9,9 @@ public class Main {
         else    lexer.getTokens(srcFile + "-lex");
         lexer.getTokens(srcFile + "-lex");
 
-        ParserTest parser = new ParserTest(srcFile);
-        parser.printAST();
+        ParserWrapper parserWrapper = new ParserWrapper(srcFile);
+//        parserWrapper.printAST();
+        parserWrapper.dfs();
 
     }
 }

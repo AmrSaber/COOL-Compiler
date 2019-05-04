@@ -63,7 +63,9 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr_(CoolParser.Expr_Context ctx) { }
+	@Override public void enterExpr_(CoolParser.Expr_Context ctx) {
+
+	}
 	/**
 	 * {@inheritDoc}
 	 *
