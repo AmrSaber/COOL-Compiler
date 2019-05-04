@@ -1,4 +1,4 @@
-// Generated from C:/Users/Mohamed Mamdouh/Desktop/Draft/COOL-Compiler\Cool.g4 by ANTLR 4.7.2
+// Generated from /home/amr/IdeaProjects/COOL Compiler/Cool.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -16,11 +16,12 @@ public interface CoolVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProgram(CoolParser.ProgramContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#classDefiniton}.
+	 * Visit a parse tree produced by the {@code classDefinitionRule}
+	 * labeled alternative in {@link CoolParser#classDefiniton}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassDefiniton(CoolParser.ClassDefinitonContext ctx);
+	T visitClassDefinitionRule(CoolParser.ClassDefinitionRuleContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CoolParser#featureDefinition}.
 	 * @param ctx the parse tree
@@ -58,29 +59,25 @@ public interface CoolVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitValue(CoolParser.ValueContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#assignmentStmt}.
+	 * Visit a parse tree produced by the {@code assignmentStmtRule}
+	 * labeled alternative in {@link CoolParser#assignmentStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAssignmentStmt(CoolParser.AssignmentStmtContext ctx);
+	T visitAssignmentStmtRule(CoolParser.AssignmentStmtRuleContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#featureCall}.
+	 * Visit a parse tree produced by the {@code featureCallRule}
+	 * labeled alternative in {@link CoolParser#featureCall}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFeatureCall(CoolParser.FeatureCallContext ctx);
+	T visitFeatureCallRule(CoolParser.FeatureCallRuleContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#memberAccess_}.
+	 * Visit a parse tree produced by {@link CoolParser#memberAccess}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMemberAccess_(CoolParser.MemberAccess_Context ctx);
-	/**
-	 * Visit a parse tree produced by {@link CoolParser#memberAcess}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMemberAcess(CoolParser.MemberAcessContext ctx);
+	T visitMemberAccess(CoolParser.MemberAccessContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CoolParser#ifStmt}.
 	 * @param ctx the parse tree
@@ -88,11 +85,24 @@ public interface CoolVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIfStmt(CoolParser.IfStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#caseStmt}.
+	 * Visit a parse tree produced by {@link CoolParser#matchedIfStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCaseStmt(CoolParser.CaseStmtContext ctx);
+	T visitMatchedIfStmt(CoolParser.MatchedIfStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CoolParser#openIfStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOpenIfStmt(CoolParser.OpenIfStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code caseStmtRule}
+	 * labeled alternative in {@link CoolParser#caseStmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCaseStmtRule(CoolParser.CaseStmtRuleContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CoolParser#letStmt}.
 	 * @param ctx the parse tree
@@ -100,41 +110,47 @@ public interface CoolVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLetStmt(CoolParser.LetStmtContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#whileStmt}.
+	 * Visit a parse tree produced by the {@code whileStmtRule}
+	 * labeled alternative in {@link CoolParser#whileStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWhileStmt(CoolParser.WhileStmtContext ctx);
+	T visitWhileStmtRule(CoolParser.WhileStmtRuleContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#block}.
+	 * Visit a parse tree produced by the {@code blockRule}
+	 * labeled alternative in {@link CoolParser#block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBlock(CoolParser.BlockContext ctx);
+	T visitBlockRule(CoolParser.BlockRuleContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#newObject}.
+	 * Visit a parse tree produced by the {@code newObjectRule}
+	 * labeled alternative in {@link CoolParser#newObject}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNewObject(CoolParser.NewObjectContext ctx);
+	T visitNewObjectRule(CoolParser.NewObjectRuleContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#isvoidExpr}.
+	 * Visit a parse tree produced by the {@code isvoidExprRule}
+	 * labeled alternative in {@link CoolParser#isvoidExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIsvoidExpr(CoolParser.IsvoidExprContext ctx);
+	T visitIsvoidExprRule(CoolParser.IsvoidExprRuleContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#invrseExpr}.
+	 * Visit a parse tree produced by the {@code invrseExprRule}
+	 * labeled alternative in {@link CoolParser#invrseExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInvrseExpr(CoolParser.InvrseExprContext ctx);
+	T visitInvrseExprRule(CoolParser.InvrseExprRuleContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#notExpr}.
+	 * Visit a parse tree produced by the {@code notExprRule}
+	 * labeled alternative in {@link CoolParser#notExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNotExpr(CoolParser.NotExprContext ctx);
+	T visitNotExprRule(CoolParser.NotExprRuleContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link CoolParser#exprList}.
 	 * @param ctx the parse tree

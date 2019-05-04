@@ -1,4 +1,4 @@
-// Generated from C:/Users/Mohamed Mamdouh/Desktop/Draft/COOL-Compiler\Cool.g4 by ANTLR 4.7.2
+// Generated from /home/amr/IdeaProjects/COOL Compiler/Cool.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -23,7 +23,7 @@ public class CoolBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements C
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitClassDefiniton(CoolParser.ClassDefinitonContext ctx) { return visitChildren(ctx); }
+	@Override public T visitClassDefinitionRule(CoolParser.ClassDefinitionRuleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -72,28 +72,21 @@ public class CoolBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements C
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAssignmentStmt(CoolParser.AssignmentStmtContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAssignmentStmtRule(CoolParser.AssignmentStmtRuleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFeatureCall(CoolParser.FeatureCallContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFeatureCallRule(CoolParser.FeatureCallRuleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMemberAccess_(CoolParser.MemberAccess_Context ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitMemberAcess(CoolParser.MemberAcessContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMemberAccess(CoolParser.MemberAccessContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -107,7 +100,21 @@ public class CoolBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements C
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCaseStmt(CoolParser.CaseStmtContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMatchedIfStmt(CoolParser.MatchedIfStmtContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitOpenIfStmt(CoolParser.OpenIfStmtContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCaseStmtRule(CoolParser.CaseStmtRuleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -121,42 +128,42 @@ public class CoolBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements C
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitWhileStmt(CoolParser.WhileStmtContext ctx) { return visitChildren(ctx); }
+	@Override public T visitWhileStmtRule(CoolParser.WhileStmtRuleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBlock(CoolParser.BlockContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBlockRule(CoolParser.BlockRuleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNewObject(CoolParser.NewObjectContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNewObjectRule(CoolParser.NewObjectRuleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIsvoidExpr(CoolParser.IsvoidExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIsvoidExprRule(CoolParser.IsvoidExprRuleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInvrseExpr(CoolParser.InvrseExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitInvrseExprRule(CoolParser.InvrseExprRuleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNotExpr(CoolParser.NotExprContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNotExprRule(CoolParser.NotExprRuleContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -1,4 +1,4 @@
-// Generated from C:/Users/Mohamed Mamdouh/Desktop/Draft/COOL-Compiler\Cool.g4 by ANTLR 4.7.2
+// Generated from /home/amr/IdeaProjects/COOL Compiler/Cool.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -28,19 +28,19 @@ public class CoolParser extends Parser {
 	public static final int
 		RULE_program = 0, RULE_classDefiniton = 1, RULE_featureDefinition = 2, 
 		RULE_expr = 3, RULE_expr_ = 4, RULE_term = 5, RULE_term_ = 6, RULE_value = 7, 
-		RULE_assignmentStmt = 8, RULE_featureCall = 9, RULE_memberAccess_ = 10, 
-		RULE_memberAcess = 11, RULE_ifStmt = 12, RULE_caseStmt = 13, RULE_letStmt = 14, 
-		RULE_whileStmt = 15, RULE_block = 16, RULE_newObject = 17, RULE_isvoidExpr = 18, 
-		RULE_invrseExpr = 19, RULE_notExpr = 20, RULE_exprList = 21, RULE_exprList_ = 22, 
-		RULE_formal = 23, RULE_formalsList = 24, RULE_formalsList_ = 25, RULE_variableDeclaration = 26, 
-		RULE_type = 27;
+		RULE_assignmentStmt = 8, RULE_featureCall = 9, RULE_memberAccess = 10, 
+		RULE_ifStmt = 11, RULE_matchedIfStmt = 12, RULE_openIfStmt = 13, RULE_caseStmt = 14, 
+		RULE_letStmt = 15, RULE_whileStmt = 16, RULE_block = 17, RULE_newObject = 18, 
+		RULE_isvoidExpr = 19, RULE_invrseExpr = 20, RULE_notExpr = 21, RULE_exprList = 22, 
+		RULE_exprList_ = 23, RULE_formal = 24, RULE_formalsList = 25, RULE_formalsList_ = 26, 
+		RULE_variableDeclaration = 27, RULE_type = 28;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"program", "classDefiniton", "featureDefinition", "expr", "expr_", "term", 
-			"term_", "value", "assignmentStmt", "featureCall", "memberAccess_", "memberAcess", 
-			"ifStmt", "caseStmt", "letStmt", "whileStmt", "block", "newObject", "isvoidExpr", 
-			"invrseExpr", "notExpr", "exprList", "exprList_", "formal", "formalsList", 
-			"formalsList_", "variableDeclaration", "type"
+			"term_", "value", "assignmentStmt", "featureCall", "memberAccess", "ifStmt", 
+			"matchedIfStmt", "openIfStmt", "caseStmt", "letStmt", "whileStmt", "block", 
+			"newObject", "isvoidExpr", "invrseExpr", "notExpr", "exprList", "exprList_", 
+			"formal", "formalsList", "formalsList_", "variableDeclaration", "type"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -151,17 +151,17 @@ public class CoolParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(59);
+			setState(61);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==CLASS) {
 				{
 				{
-				setState(56);
+				setState(58);
 				classDefiniton();
 				}
 				}
-				setState(61);
+				setState(63);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -179,6 +179,17 @@ public class CoolParser extends Parser {
 	}
 
 	public static class ClassDefinitonContext extends ParserRuleContext {
+		public ClassDefinitonContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_classDefiniton; }
+	 
+		public ClassDefinitonContext() { }
+		public void copyFrom(ClassDefinitonContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ClassDefinitionRuleContext extends ClassDefinitonContext {
 		public TerminalNode CLASS() { return getToken(CoolParser.CLASS, 0); }
 		public List<TerminalNode> ID() { return getTokens(CoolParser.ID); }
 		public TerminalNode ID(int i) {
@@ -203,21 +214,18 @@ public class CoolParser extends Parser {
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
-		public ClassDefinitonContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_classDefiniton; }
+		public ClassDefinitionRuleContext(ClassDefinitonContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterClassDefiniton(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterClassDefinitionRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitClassDefiniton(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitClassDefinitionRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitClassDefiniton(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitClassDefinitionRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -228,20 +236,21 @@ public class CoolParser extends Parser {
 		int _la;
 		try {
 			int _alt;
+			_localctx = new ClassDefinitionRuleContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(62);
+			setState(64);
 			match(CLASS);
-			setState(63);
+			setState(65);
 			match(ID);
-			setState(70);
+			setState(72);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INHERITS:
 				{
-				setState(64);
+				setState(66);
 				match(INHERITS);
-				setState(67);
+				setState(69);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case SELF_TYPE:
@@ -251,13 +260,13 @@ public class CoolParser extends Parser {
 				case BOOL:
 				case IO:
 					{
-					setState(65);
+					setState(67);
 					type();
 					}
 					break;
 				case ID:
 					{
-					setState(66);
+					setState(68);
 					match(ID);
 					}
 					break;
@@ -273,41 +282,41 @@ public class CoolParser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(72);
+			setState(74);
 			match(OPENING_CURLY_BRACKET);
-			setState(76);
+			setState(78);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(73);
+					setState(75);
 					variableDeclaration();
 					}
 					} 
 				}
-				setState(78);
+				setState(80);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
-			setState(82);
+			setState(84);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==ID) {
 				{
 				{
-				setState(79);
+				setState(81);
 				featureDefinition();
 				}
 				}
-				setState(84);
+				setState(86);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(85);
+			setState(87);
 			match(CLOSING_CURLY_BRACKET);
-			setState(86);
+			setState(88);
 			match(SEMICOLON);
 			}
 		}
@@ -366,22 +375,22 @@ public class CoolParser extends Parser {
 		FeatureDefinitionContext _localctx = new FeatureDefinitionContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_featureDefinition);
 		try {
-			setState(117);
+			setState(119);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(88);
+				setState(90);
 				match(ID);
-				setState(89);
+				setState(91);
 				match(OPENING_BRACKET);
-				setState(92);
+				setState(94);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case ID:
 					{
-					setState(90);
+					setState(92);
 					formalsList();
 					}
 					break;
@@ -392,16 +401,16 @@ public class CoolParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(94);
+				setState(96);
 				match(CLOSING_BRACKET);
-				setState(95);
+				setState(97);
 				match(COLON);
-				setState(98);
+				setState(100);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case ID:
 					{
-					setState(96);
+					setState(98);
 					match(ID);
 					}
 					break;
@@ -412,31 +421,31 @@ public class CoolParser extends Parser {
 				case BOOL:
 				case IO:
 					{
-					setState(97);
+					setState(99);
 					type();
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(100);
-				match(OPENING_CURLY_BRACKET);
-				setState(101);
-				expr();
 				setState(102);
-				match(CLOSING_CURLY_BRACKET);
+				match(OPENING_CURLY_BRACKET);
 				setState(103);
+				expr();
+				setState(104);
+				match(CLOSING_CURLY_BRACKET);
+				setState(105);
 				match(SEMICOLON);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(105);
+				setState(107);
 				match(ID);
-				setState(106);
+				setState(108);
 				match(COLON);
-				setState(109);
+				setState(111);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case SELF_TYPE:
@@ -446,27 +455,27 @@ public class CoolParser extends Parser {
 				case BOOL:
 				case IO:
 					{
-					setState(107);
+					setState(109);
 					type();
 					}
 					break;
 				case ID:
 					{
-					setState(108);
+					setState(110);
 					match(ID);
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(114);
+				setState(116);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case OP_ASSIGNMENT:
 					{
-					setState(111);
+					setState(113);
 					match(OP_ASSIGNMENT);
-					setState(112);
+					setState(114);
 					expr();
 					}
 					break;
@@ -477,7 +486,7 @@ public class CoolParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(116);
+				setState(118);
 				match(SEMICOLON);
 				}
 				break;
@@ -526,9 +535,9 @@ public class CoolParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(119);
+			setState(121);
 			term();
-			setState(120);
+			setState(122);
 			expr_();
 			}
 		}
@@ -544,6 +553,7 @@ public class CoolParser extends Parser {
 	}
 
 	public static class Expr_Context extends ParserRuleContext {
+		public Token op;
 		public TermContext term() {
 			return getRuleContext(TermContext.class,0);
 		}
@@ -579,25 +589,26 @@ public class CoolParser extends Parser {
 		enterRule(_localctx, 8, RULE_expr_);
 		int _la;
 		try {
-			setState(127);
+			setState(129);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(122);
+				setState(124);
+				((Expr_Context)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << OP_ADD) | (1L << OP_SUB) | (1L << RELOP_LT) | (1L << RELOP_LE) | (1L << RELOP_EQ))) != 0)) ) {
-				_errHandler.recoverInline(this);
+					((Expr_Context)_localctx).op = (Token)_errHandler.recoverInline(this);
 				}
 				else {
 					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(123);
+				setState(125);
 				term();
-				setState(124);
+				setState(126);
 				expr_();
 				}
 				break;
@@ -651,9 +662,9 @@ public class CoolParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(129);
+			setState(131);
 			value();
-			setState(130);
+			setState(132);
 			term_();
 			}
 		}
@@ -669,6 +680,7 @@ public class CoolParser extends Parser {
 	}
 
 	public static class Term_Context extends ParserRuleContext {
+		public Token op;
 		public ValueContext value() {
 			return getRuleContext(ValueContext.class,0);
 		}
@@ -701,25 +713,26 @@ public class CoolParser extends Parser {
 		enterRule(_localctx, 12, RULE_term_);
 		int _la;
 		try {
-			setState(137);
+			setState(139);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(132);
+				setState(134);
+				((Term_Context)_localctx).op = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !(_la==OP_MUL || _la==OP_DIV) ) {
-				_errHandler.recoverInline(this);
+					((Term_Context)_localctx).op = (Token)_errHandler.recoverInline(this);
 				}
 				else {
 					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(133);
+				setState(135);
 				value();
-				setState(134);
+				setState(136);
 				term_();
 				}
 				break;
@@ -786,8 +799,8 @@ public class CoolParser extends Parser {
 		public TerminalNode LITERAL() { return getToken(CoolParser.LITERAL, 0); }
 		public TerminalNode TRUE() { return getToken(CoolParser.TRUE, 0); }
 		public TerminalNode FALSE() { return getToken(CoolParser.FALSE, 0); }
-		public MemberAccess_Context memberAccess_() {
-			return getRuleContext(MemberAccess_Context.class,0);
+		public MemberAccessContext memberAccess() {
+			return getRuleContext(MemberAccessContext.class,0);
 		}
 		public ValueContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -814,129 +827,129 @@ public class CoolParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(160);
+			setState(162);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				{
-				setState(139);
+				setState(141);
 				assignmentStmt();
 				}
 				break;
 			case 2:
 				{
-				setState(140);
+				setState(142);
 				featureCall();
 				}
 				break;
 			case 3:
 				{
-				setState(141);
+				setState(143);
 				ifStmt();
 				}
 				break;
 			case 4:
 				{
-				setState(142);
+				setState(144);
 				caseStmt();
 				}
 				break;
 			case 5:
 				{
-				setState(143);
+				setState(145);
 				letStmt();
 				}
 				break;
 			case 6:
 				{
-				setState(144);
+				setState(146);
 				whileStmt();
 				}
 				break;
 			case 7:
 				{
-				setState(145);
+				setState(147);
 				block();
 				}
 				break;
 			case 8:
 				{
-				setState(146);
+				setState(148);
 				newObject();
 				}
 				break;
 			case 9:
 				{
-				setState(147);
+				setState(149);
 				isvoidExpr();
 				}
 				break;
 			case 10:
 				{
-				setState(148);
+				setState(150);
 				notExpr();
 				}
 				break;
 			case 11:
 				{
-				setState(149);
+				setState(151);
 				invrseExpr();
 				}
 				break;
 			case 12:
 				{
-				setState(150);
-				match(OPENING_BRACKET);
-				setState(151);
-				expr();
 				setState(152);
+				match(OPENING_BRACKET);
+				setState(153);
+				expr();
+				setState(154);
 				match(CLOSING_BRACKET);
 				}
 				break;
 			case 13:
 				{
-				setState(154);
+				setState(156);
 				match(SELF);
 				}
 				break;
 			case 14:
 				{
-				setState(155);
+				setState(157);
 				match(ID);
 				}
 				break;
 			case 15:
 				{
-				setState(156);
+				setState(158);
 				match(NUM);
 				}
 				break;
 			case 16:
 				{
-				setState(157);
+				setState(159);
 				match(LITERAL);
 				}
 				break;
 			case 17:
 				{
-				setState(158);
+				setState(160);
 				match(TRUE);
 				}
 				break;
 			case 18:
 				{
-				setState(159);
+				setState(161);
 				match(FALSE);
 				}
 				break;
 			}
-			setState(164);
+			setState(166);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
 			case 1:
 				{
-				setState(162);
-				memberAccess_();
+				setState(164);
+				memberAccess();
 				}
 				break;
 			case 2:
@@ -958,26 +971,34 @@ public class CoolParser extends Parser {
 	}
 
 	public static class AssignmentStmtContext extends ParserRuleContext {
+		public AssignmentStmtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_assignmentStmt; }
+	 
+		public AssignmentStmtContext() { }
+		public void copyFrom(AssignmentStmtContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class AssignmentStmtRuleContext extends AssignmentStmtContext {
 		public TerminalNode ID() { return getToken(CoolParser.ID, 0); }
 		public TerminalNode OP_ASSIGNMENT() { return getToken(CoolParser.OP_ASSIGNMENT, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
-		public AssignmentStmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_assignmentStmt; }
+		public AssignmentStmtRuleContext(AssignmentStmtContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterAssignmentStmt(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterAssignmentStmtRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitAssignmentStmt(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitAssignmentStmtRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitAssignmentStmt(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitAssignmentStmtRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -986,13 +1007,14 @@ public class CoolParser extends Parser {
 		AssignmentStmtContext _localctx = new AssignmentStmtContext(_ctx, getState());
 		enterRule(_localctx, 16, RULE_assignmentStmt);
 		try {
+			_localctx = new AssignmentStmtRuleContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(166);
-			match(ID);
-			setState(167);
-			match(OP_ASSIGNMENT);
 			setState(168);
+			match(ID);
+			setState(169);
+			match(OP_ASSIGNMENT);
+			setState(170);
 			expr();
 			}
 		}
@@ -1008,27 +1030,35 @@ public class CoolParser extends Parser {
 	}
 
 	public static class FeatureCallContext extends ParserRuleContext {
+		public FeatureCallContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_featureCall; }
+	 
+		public FeatureCallContext() { }
+		public void copyFrom(FeatureCallContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class FeatureCallRuleContext extends FeatureCallContext {
 		public TerminalNode ID() { return getToken(CoolParser.ID, 0); }
 		public TerminalNode OPENING_BRACKET() { return getToken(CoolParser.OPENING_BRACKET, 0); }
 		public TerminalNode CLOSING_BRACKET() { return getToken(CoolParser.CLOSING_BRACKET, 0); }
 		public ExprListContext exprList() {
 			return getRuleContext(ExprListContext.class,0);
 		}
-		public FeatureCallContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_featureCall; }
+		public FeatureCallRuleContext(FeatureCallContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterFeatureCall(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterFeatureCallRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitFeatureCall(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitFeatureCallRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitFeatureCall(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitFeatureCallRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1037,13 +1067,14 @@ public class CoolParser extends Parser {
 		FeatureCallContext _localctx = new FeatureCallContext(_ctx, getState());
 		enterRule(_localctx, 18, RULE_featureCall);
 		try {
+			_localctx = new FeatureCallRuleContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(170);
+			setState(172);
 			match(ID);
-			setState(171);
+			setState(173);
 			match(OPENING_BRACKET);
-			setState(174);
+			setState(176);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case NEW:
@@ -1063,7 +1094,7 @@ public class CoolParser extends Parser {
 			case LITERAL:
 			case ID:
 				{
-				setState(172);
+				setState(174);
 				exprList();
 				}
 				break;
@@ -1074,7 +1105,7 @@ public class CoolParser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(176);
+			setState(178);
 			match(CLOSING_BRACKET);
 			}
 		}
@@ -1089,10 +1120,10 @@ public class CoolParser extends Parser {
 		return _localctx;
 	}
 
-	public static class MemberAccess_Context extends ParserRuleContext {
+	public static class MemberAccessContext extends ParserRuleContext {
 		public TerminalNode DOT() { return getToken(CoolParser.DOT, 0); }
-		public MemberAccess_Context memberAccess_() {
-			return getRuleContext(MemberAccess_Context.class,0);
+		public MemberAccessContext memberAccess() {
+			return getRuleContext(MemberAccessContext.class,0);
 		}
 		public TerminalNode AT() { return getToken(CoolParser.AT, 0); }
 		public FeatureCallContext featureCall() {
@@ -1105,43 +1136,43 @@ public class CoolParser extends Parser {
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
-		public MemberAccess_Context(ParserRuleContext parent, int invokingState) {
+		public MemberAccessContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_memberAccess_; }
+		@Override public int getRuleIndex() { return RULE_memberAccess; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterMemberAccess_(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterMemberAccess(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitMemberAccess_(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitMemberAccess(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitMemberAccess_(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitMemberAccess(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final MemberAccess_Context memberAccess_() throws RecognitionException {
-		MemberAccess_Context _localctx = new MemberAccess_Context(_ctx, getState());
-		enterRule(_localctx, 20, RULE_memberAccess_);
+	public final MemberAccessContext memberAccess() throws RecognitionException {
+		MemberAccessContext _localctx = new MemberAccessContext(_ctx, getState());
+		enterRule(_localctx, 20, RULE_memberAccess);
 		try {
-			setState(193);
+			setState(195);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(184);
+				setState(186);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case AT:
 					{
-					setState(178);
+					setState(180);
 					match(AT);
-					setState(181);
+					setState(183);
 					_errHandler.sync(this);
 					switch (_input.LA(1)) {
 					case SELF_TYPE:
@@ -1151,13 +1182,13 @@ public class CoolParser extends Parser {
 					case BOOL:
 					case IO:
 						{
-						setState(179);
+						setState(181);
 						type();
 						}
 						break;
 					case ID:
 						{
-						setState(180);
+						setState(182);
 						match(ID);
 						}
 						break;
@@ -1173,26 +1204,26 @@ public class CoolParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(186);
+				setState(188);
 				match(DOT);
-				setState(189);
+				setState(191);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
 				case 1:
 					{
-					setState(187);
+					setState(189);
 					featureCall();
 					}
 					break;
 				case 2:
 					{
-					setState(188);
+					setState(190);
 					match(ID);
 					}
 					break;
 				}
-				setState(191);
-				memberAccess_();
+				setState(193);
+				memberAccess();
 				}
 				break;
 			case 2:
@@ -1213,127 +1244,13 @@ public class CoolParser extends Parser {
 		return _localctx;
 	}
 
-	public static class MemberAcessContext extends ParserRuleContext {
-		public List<TerminalNode> ID() { return getTokens(CoolParser.ID); }
-		public TerminalNode ID(int i) {
-			return getToken(CoolParser.ID, i);
-		}
-		public TerminalNode DOT() { return getToken(CoolParser.DOT, 0); }
-		public TerminalNode AT() { return getToken(CoolParser.AT, 0); }
-		public FeatureCallContext featureCall() {
-			return getRuleContext(FeatureCallContext.class,0);
-		}
-		public TypeContext type() {
-			return getRuleContext(TypeContext.class,0);
-		}
-		public MemberAcessContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_memberAcess; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterMemberAcess(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitMemberAcess(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitMemberAcess(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final MemberAcessContext memberAcess() throws RecognitionException {
-		MemberAcessContext _localctx = new MemberAcessContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_memberAcess);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(195);
-			match(ID);
-			setState(202);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case AT:
-				{
-				setState(196);
-				match(AT);
-				setState(199);
-				_errHandler.sync(this);
-				switch (_input.LA(1)) {
-				case SELF_TYPE:
-				case INT:
-				case STRING:
-				case VOID:
-				case BOOL:
-				case IO:
-					{
-					setState(197);
-					type();
-					}
-					break;
-				case ID:
-					{
-					setState(198);
-					match(ID);
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				}
-				break;
-			case DOT:
-				{
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(204);
-			match(DOT);
-			setState(207);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,21,_ctx) ) {
-			case 1:
-				{
-				setState(205);
-				featureCall();
-				}
-				break;
-			case 2:
-				{
-				setState(206);
-				match(ID);
-				}
-				break;
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
 	public static class IfStmtContext extends ParserRuleContext {
-		public TerminalNode IF() { return getToken(CoolParser.IF, 0); }
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
+		public MatchedIfStmtContext matchedIfStmt() {
+			return getRuleContext(MatchedIfStmtContext.class,0);
 		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
+		public OpenIfStmtContext openIfStmt() {
+			return getRuleContext(OpenIfStmtContext.class,0);
 		}
-		public TerminalNode THEN() { return getToken(CoolParser.THEN, 0); }
-		public TerminalNode FI() { return getToken(CoolParser.FI, 0); }
-		public TerminalNode ELSE() { return getToken(CoolParser.ELSE, 0); }
 		public IfStmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1355,38 +1272,173 @@ public class CoolParser extends Parser {
 
 	public final IfStmtContext ifStmt() throws RecognitionException {
 		IfStmtContext _localctx = new IfStmtContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_ifStmt);
+		enterRule(_localctx, 22, RULE_ifStmt);
+		try {
+			setState(199);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,19,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(197);
+				matchedIfStmt();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(198);
+				openIfStmt();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class MatchedIfStmtContext extends ParserRuleContext {
+		public TerminalNode IF() { return getToken(CoolParser.IF, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode THEN() { return getToken(CoolParser.THEN, 0); }
+		public List<MatchedIfStmtContext> matchedIfStmt() {
+			return getRuleContexts(MatchedIfStmtContext.class);
+		}
+		public MatchedIfStmtContext matchedIfStmt(int i) {
+			return getRuleContext(MatchedIfStmtContext.class,i);
+		}
+		public TerminalNode ELSE() { return getToken(CoolParser.ELSE, 0); }
+		public MatchedIfStmtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_matchedIfStmt; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterMatchedIfStmt(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitMatchedIfStmt(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitMatchedIfStmt(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final MatchedIfStmtContext matchedIfStmt() throws RecognitionException {
+		MatchedIfStmtContext _localctx = new MatchedIfStmtContext(_ctx, getState());
+		enterRule(_localctx, 24, RULE_matchedIfStmt);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(209);
+			setState(201);
 			match(IF);
-			setState(210);
+			setState(202);
 			expr();
-			setState(211);
+			setState(203);
 			match(THEN);
-			setState(212);
-			expr();
-			setState(216);
+			setState(204);
+			matchedIfStmt();
+			setState(205);
+			match(ELSE);
+			setState(206);
+			matchedIfStmt();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class OpenIfStmtContext extends ParserRuleContext {
+		public TerminalNode IF() { return getToken(CoolParser.IF, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public TerminalNode THEN() { return getToken(CoolParser.THEN, 0); }
+		public IfStmtContext ifStmt() {
+			return getRuleContext(IfStmtContext.class,0);
+		}
+		public MatchedIfStmtContext matchedIfStmt() {
+			return getRuleContext(MatchedIfStmtContext.class,0);
+		}
+		public TerminalNode ELSE() { return getToken(CoolParser.ELSE, 0); }
+		public OpenIfStmtContext openIfStmt() {
+			return getRuleContext(OpenIfStmtContext.class,0);
+		}
+		public OpenIfStmtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_openIfStmt; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterOpenIfStmt(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitOpenIfStmt(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitOpenIfStmt(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final OpenIfStmtContext openIfStmt() throws RecognitionException {
+		OpenIfStmtContext _localctx = new OpenIfStmtContext(_ctx, getState());
+		enterRule(_localctx, 26, RULE_openIfStmt);
+		try {
+			setState(220);
 			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case ELSE:
+			switch ( getInterpreter().adaptivePredict(_input,20,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(208);
+				match(IF);
+				setState(209);
+				expr();
+				setState(210);
+				match(THEN);
+				setState(211);
+				ifStmt();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
 				{
 				setState(213);
-				match(ELSE);
+				match(IF);
 				setState(214);
 				expr();
+				setState(215);
+				match(THEN);
+				setState(216);
+				matchedIfStmt();
+				setState(217);
+				match(ELSE);
+				setState(218);
+				openIfStmt();
 				}
 				break;
-			case FI:
-				{
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-			setState(218);
-			match(FI);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1401,6 +1453,17 @@ public class CoolParser extends Parser {
 	}
 
 	public static class CaseStmtContext extends ParserRuleContext {
+		public CaseStmtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_caseStmt; }
+	 
+		public CaseStmtContext() { }
+		public void copyFrom(CaseStmtContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class CaseStmtRuleContext extends CaseStmtContext {
 		public TerminalNode CASE() { return getToken(CoolParser.CASE, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
@@ -1428,49 +1491,47 @@ public class CoolParser extends Parser {
 		public TypeContext type(int i) {
 			return getRuleContext(TypeContext.class,i);
 		}
-		public CaseStmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_caseStmt; }
+		public CaseStmtRuleContext(CaseStmtContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterCaseStmt(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterCaseStmtRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitCaseStmt(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitCaseStmtRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitCaseStmt(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitCaseStmtRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final CaseStmtContext caseStmt() throws RecognitionException {
 		CaseStmtContext _localctx = new CaseStmtContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_caseStmt);
+		enterRule(_localctx, 28, RULE_caseStmt);
 		int _la;
 		try {
+			_localctx = new CaseStmtRuleContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(220);
-			match(CASE);
-			setState(221);
-			expr();
 			setState(222);
+			match(CASE);
+			setState(223);
+			expr();
+			setState(224);
 			match(OF);
-			setState(233); 
+			setState(235); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(223);
+				setState(225);
 				match(ID);
-				setState(224);
+				setState(226);
 				match(COLON);
-				setState(227);
+				setState(229);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case SELF_TYPE:
@@ -1480,32 +1541,32 @@ public class CoolParser extends Parser {
 				case BOOL:
 				case IO:
 					{
-					setState(225);
+					setState(227);
 					type();
 					}
 					break;
 				case ID:
 					{
-					setState(226);
+					setState(228);
 					match(ID);
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(229);
-				match(T__0);
-				setState(230);
-				expr();
 				setState(231);
+				match(T__0);
+				setState(232);
+				expr();
+				setState(233);
 				match(SEMICOLON);
 				}
 				}
-				setState(235); 
+				setState(237); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==ID );
-			setState(237);
+			setState(239);
 			match(ESAC);
 			}
 		}
@@ -1568,24 +1629,24 @@ public class CoolParser extends Parser {
 
 	public final LetStmtContext letStmt() throws RecognitionException {
 		LetStmtContext _localctx = new LetStmtContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_letStmt);
+		enterRule(_localctx, 30, RULE_letStmt);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(239);
+			setState(241);
 			match(LET);
-			setState(250); 
+			setState(252); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(240);
+				setState(242);
 				match(ID);
-				setState(241);
+				setState(243);
 				match(COLON);
-				setState(244);
+				setState(246);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case SELF_TYPE:
@@ -1595,40 +1656,40 @@ public class CoolParser extends Parser {
 				case BOOL:
 				case IO:
 					{
-					setState(242);
+					setState(244);
 					type();
 					}
 					break;
 				case ID:
 					{
-					setState(243);
+					setState(245);
 					match(ID);
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(246);
-				match(OP_ASSIGNMENT);
 				setState(248);
+				match(OP_ASSIGNMENT);
+				setState(250);
 				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,26,_ctx) ) {
+				switch ( getInterpreter().adaptivePredict(_input,24,_ctx) ) {
 				case 1:
 					{
-					setState(247);
+					setState(249);
 					expr();
 					}
 					break;
 				}
 				}
 				}
-				setState(252); 
+				setState(254); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==ID );
-			setState(254);
+			setState(256);
 			match(IN);
-			setState(255);
+			setState(257);
 			expr();
 			}
 		}
@@ -1644,6 +1705,17 @@ public class CoolParser extends Parser {
 	}
 
 	public static class WhileStmtContext extends ParserRuleContext {
+		public WhileStmtContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_whileStmt; }
+	 
+		public WhileStmtContext() { }
+		public void copyFrom(WhileStmtContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class WhileStmtRuleContext extends WhileStmtContext {
 		public TerminalNode WHILE() { return getToken(CoolParser.WHILE, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
@@ -1653,40 +1725,38 @@ public class CoolParser extends Parser {
 		}
 		public TerminalNode LOOP() { return getToken(CoolParser.LOOP, 0); }
 		public TerminalNode POOL() { return getToken(CoolParser.POOL, 0); }
-		public WhileStmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_whileStmt; }
+		public WhileStmtRuleContext(WhileStmtContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterWhileStmt(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterWhileStmtRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitWhileStmt(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitWhileStmtRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitWhileStmt(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitWhileStmtRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final WhileStmtContext whileStmt() throws RecognitionException {
 		WhileStmtContext _localctx = new WhileStmtContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_whileStmt);
+		enterRule(_localctx, 32, RULE_whileStmt);
 		try {
+			_localctx = new WhileStmtRuleContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(257);
-			match(WHILE);
-			setState(258);
-			expr();
 			setState(259);
-			match(LOOP);
+			match(WHILE);
 			setState(260);
 			expr();
 			setState(261);
+			match(LOOP);
+			setState(262);
+			expr();
+			setState(263);
 			match(POOL);
 			}
 		}
@@ -1702,6 +1772,17 @@ public class CoolParser extends Parser {
 	}
 
 	public static class BlockContext extends ParserRuleContext {
+		public BlockContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_block; }
+	 
+		public BlockContext() { }
+		public void copyFrom(BlockContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class BlockRuleContext extends BlockContext {
 		public TerminalNode OPENING_CURLY_BRACKET() { return getToken(CoolParser.OPENING_CURLY_BRACKET, 0); }
 		public TerminalNode CLOSING_CURLY_BRACKET() { return getToken(CoolParser.CLOSING_CURLY_BRACKET, 0); }
 		public List<ExprContext> expr() {
@@ -1714,51 +1795,49 @@ public class CoolParser extends Parser {
 		public TerminalNode SEMICOLON(int i) {
 			return getToken(CoolParser.SEMICOLON, i);
 		}
-		public BlockContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_block; }
+		public BlockRuleContext(BlockContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterBlock(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterBlockRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitBlock(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitBlockRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitBlock(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitBlockRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final BlockContext block() throws RecognitionException {
 		BlockContext _localctx = new BlockContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_block);
+		enterRule(_localctx, 34, RULE_block);
 		int _la;
 		try {
+			_localctx = new BlockRuleContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(263);
+			setState(265);
 			match(OPENING_CURLY_BRACKET);
-			setState(267); 
+			setState(269); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(264);
+				setState(266);
 				expr();
-				setState(265);
+				setState(267);
 				match(SEMICOLON);
 				}
 				}
-				setState(269); 
+				setState(271); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NEW) | (1L << SELF) | (1L << TRUE) | (1L << FALSE) | (1L << ISVOID) | (1L << IF) | (1L << CASE) | (1L << WHILE) | (1L << LET) | (1L << OP_NOT) | (1L << OP_INV) | (1L << OPENING_CURLY_BRACKET) | (1L << OPENING_BRACKET) | (1L << NUM) | (1L << LITERAL) | (1L << ID))) != 0) );
-			setState(271);
+			setState(273);
 			match(CLOSING_CURLY_BRACKET);
 			}
 		}
@@ -1774,39 +1853,48 @@ public class CoolParser extends Parser {
 	}
 
 	public static class NewObjectContext extends ParserRuleContext {
+		public NewObjectContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_newObject; }
+	 
+		public NewObjectContext() { }
+		public void copyFrom(NewObjectContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class NewObjectRuleContext extends NewObjectContext {
 		public TerminalNode NEW() { return getToken(CoolParser.NEW, 0); }
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
 		public TerminalNode ID() { return getToken(CoolParser.ID, 0); }
-		public NewObjectContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_newObject; }
+		public NewObjectRuleContext(NewObjectContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterNewObject(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterNewObjectRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitNewObject(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitNewObjectRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitNewObject(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitNewObjectRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final NewObjectContext newObject() throws RecognitionException {
 		NewObjectContext _localctx = new NewObjectContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_newObject);
+		enterRule(_localctx, 36, RULE_newObject);
 		try {
+			_localctx = new NewObjectRuleContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(273);
+			setState(275);
 			match(NEW);
-			setState(276);
+			setState(278);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case SELF_TYPE:
@@ -1816,13 +1904,13 @@ public class CoolParser extends Parser {
 			case BOOL:
 			case IO:
 				{
-				setState(274);
+				setState(276);
 				type();
 				}
 				break;
 			case ID:
 				{
-				setState(275);
+				setState(277);
 				match(ID);
 				}
 				break;
@@ -1843,38 +1931,47 @@ public class CoolParser extends Parser {
 	}
 
 	public static class IsvoidExprContext extends ParserRuleContext {
-		public TerminalNode ISVOID() { return getToken(CoolParser.ISVOID, 0); }
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
 		public IsvoidExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_isvoidExpr; }
+	 
+		public IsvoidExprContext() { }
+		public void copyFrom(IsvoidExprContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class IsvoidExprRuleContext extends IsvoidExprContext {
+		public TerminalNode ISVOID() { return getToken(CoolParser.ISVOID, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public IsvoidExprRuleContext(IsvoidExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterIsvoidExpr(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterIsvoidExprRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitIsvoidExpr(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitIsvoidExprRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitIsvoidExpr(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitIsvoidExprRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final IsvoidExprContext isvoidExpr() throws RecognitionException {
 		IsvoidExprContext _localctx = new IsvoidExprContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_isvoidExpr);
+		enterRule(_localctx, 38, RULE_isvoidExpr);
 		try {
+			_localctx = new IsvoidExprRuleContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(278);
+			setState(280);
 			match(ISVOID);
-			setState(279);
+			setState(281);
 			expr();
 			}
 		}
@@ -1890,38 +1987,47 @@ public class CoolParser extends Parser {
 	}
 
 	public static class InvrseExprContext extends ParserRuleContext {
-		public TerminalNode OP_INV() { return getToken(CoolParser.OP_INV, 0); }
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
 		public InvrseExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_invrseExpr; }
+	 
+		public InvrseExprContext() { }
+		public void copyFrom(InvrseExprContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class InvrseExprRuleContext extends InvrseExprContext {
+		public TerminalNode OP_INV() { return getToken(CoolParser.OP_INV, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public InvrseExprRuleContext(InvrseExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterInvrseExpr(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterInvrseExprRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitInvrseExpr(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitInvrseExprRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitInvrseExpr(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitInvrseExprRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final InvrseExprContext invrseExpr() throws RecognitionException {
 		InvrseExprContext _localctx = new InvrseExprContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_invrseExpr);
+		enterRule(_localctx, 40, RULE_invrseExpr);
 		try {
+			_localctx = new InvrseExprRuleContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(281);
+			setState(283);
 			match(OP_INV);
-			setState(282);
+			setState(284);
 			expr();
 			}
 		}
@@ -1937,38 +2043,47 @@ public class CoolParser extends Parser {
 	}
 
 	public static class NotExprContext extends ParserRuleContext {
-		public TerminalNode OP_NOT() { return getToken(CoolParser.OP_NOT, 0); }
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
 		public NotExprContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_notExpr; }
+	 
+		public NotExprContext() { }
+		public void copyFrom(NotExprContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class NotExprRuleContext extends NotExprContext {
+		public TerminalNode OP_NOT() { return getToken(CoolParser.OP_NOT, 0); }
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public NotExprRuleContext(NotExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterNotExpr(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).enterNotExprRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitNotExpr(this);
+			if ( listener instanceof CoolListener ) ((CoolListener)listener).exitNotExprRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitNotExpr(this);
+			if ( visitor instanceof CoolVisitor ) return ((CoolVisitor<? extends T>)visitor).visitNotExprRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final NotExprContext notExpr() throws RecognitionException {
 		NotExprContext _localctx = new NotExprContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_notExpr);
+		enterRule(_localctx, 42, RULE_notExpr);
 		try {
+			_localctx = new NotExprRuleContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(284);
+			setState(286);
 			match(OP_NOT);
-			setState(285);
+			setState(287);
 			expr();
 			}
 		}
@@ -2011,13 +2126,13 @@ public class CoolParser extends Parser {
 
 	public final ExprListContext exprList() throws RecognitionException {
 		ExprListContext _localctx = new ExprListContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_exprList);
+		enterRule(_localctx, 44, RULE_exprList);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(287);
+			setState(289);
 			expr();
-			setState(288);
+			setState(290);
 			exprList_();
 			}
 		}
@@ -2061,19 +2176,19 @@ public class CoolParser extends Parser {
 
 	public final ExprList_Context exprList_() throws RecognitionException {
 		ExprList_Context _localctx = new ExprList_Context(_ctx, getState());
-		enterRule(_localctx, 44, RULE_exprList_);
+		enterRule(_localctx, 46, RULE_exprList_);
 		try {
-			setState(295);
+			setState(297);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case COMMA:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(290);
-				match(COMMA);
-				setState(291);
-				expr();
 				setState(292);
+				match(COMMA);
+				setState(293);
+				expr();
+				setState(294);
 				exprList_();
 				}
 				break;
@@ -2127,15 +2242,15 @@ public class CoolParser extends Parser {
 
 	public final FormalContext formal() throws RecognitionException {
 		FormalContext _localctx = new FormalContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_formal);
+		enterRule(_localctx, 48, RULE_formal);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(297);
+			setState(299);
 			match(ID);
-			setState(298);
+			setState(300);
 			match(COLON);
-			setState(301);
+			setState(303);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case SELF_TYPE:
@@ -2145,13 +2260,13 @@ public class CoolParser extends Parser {
 			case BOOL:
 			case IO:
 				{
-				setState(299);
+				setState(301);
 				type();
 				}
 				break;
 			case ID:
 				{
-				setState(300);
+				setState(302);
 				match(ID);
 				}
 				break;
@@ -2199,13 +2314,13 @@ public class CoolParser extends Parser {
 
 	public final FormalsListContext formalsList() throws RecognitionException {
 		FormalsListContext _localctx = new FormalsListContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_formalsList);
+		enterRule(_localctx, 50, RULE_formalsList);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(303);
+			setState(305);
 			formal();
-			setState(304);
+			setState(306);
 			formalsList_();
 			}
 		}
@@ -2249,19 +2364,19 @@ public class CoolParser extends Parser {
 
 	public final FormalsList_Context formalsList_() throws RecognitionException {
 		FormalsList_Context _localctx = new FormalsList_Context(_ctx, getState());
-		enterRule(_localctx, 50, RULE_formalsList_);
+		enterRule(_localctx, 52, RULE_formalsList_);
 		try {
-			setState(311);
+			setState(313);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case COMMA:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(306);
-				match(COMMA);
-				setState(307);
-				formal();
 				setState(308);
+				match(COMMA);
+				setState(309);
+				formal();
+				setState(310);
 				formalsList_();
 				}
 				break;
@@ -2320,15 +2435,15 @@ public class CoolParser extends Parser {
 
 	public final VariableDeclarationContext variableDeclaration() throws RecognitionException {
 		VariableDeclarationContext _localctx = new VariableDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 52, RULE_variableDeclaration);
+		enterRule(_localctx, 54, RULE_variableDeclaration);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(313);
+			setState(315);
 			match(ID);
-			setState(314);
+			setState(316);
 			match(COLON);
-			setState(317);
+			setState(319);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case SELF_TYPE:
@@ -2338,27 +2453,27 @@ public class CoolParser extends Parser {
 			case BOOL:
 			case IO:
 				{
-				setState(315);
+				setState(317);
 				type();
 				}
 				break;
 			case ID:
 				{
-				setState(316);
+				setState(318);
 				match(ID);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(322);
+			setState(324);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case OP_ASSIGNMENT:
 				{
-				setState(319);
+				setState(321);
 				match(OP_ASSIGNMENT);
-				setState(320);
+				setState(322);
 				expr();
 				}
 				break;
@@ -2369,7 +2484,7 @@ public class CoolParser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(324);
+			setState(326);
 			match(SEMICOLON);
 			}
 		}
@@ -2412,12 +2527,12 @@ public class CoolParser extends Parser {
 
 	public final TypeContext type() throws RecognitionException {
 		TypeContext _localctx = new TypeContext(_ctx, getState());
-		enterRule(_localctx, 54, RULE_type);
+		enterRule(_localctx, 56, RULE_type);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(326);
+			setState(328);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << SELF_TYPE) | (1L << INT) | (1L << STRING) | (1L << VOID) | (1L << BOOL) | (1L << IO))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -2441,121 +2556,121 @@ public class CoolParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\39\u014b\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\39\u014d\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
-		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\3\2\7\2<\n\2\f\2\16\2?\13\2\3"+
-		"\3\3\3\3\3\3\3\3\3\5\3F\n\3\3\3\5\3I\n\3\3\3\3\3\7\3M\n\3\f\3\16\3P\13"+
-		"\3\3\3\7\3S\n\3\f\3\16\3V\13\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\5\4_\n\4\3"+
-		"\4\3\4\3\4\3\4\5\4e\n\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4p\n\4\3"+
-		"\4\3\4\3\4\5\4u\n\4\3\4\5\4x\n\4\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\5\6\u0082"+
-		"\n\6\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\5\b\u008c\n\b\3\t\3\t\3\t\3\t\3\t"+
-		"\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\5\t\u00a3"+
-		"\n\t\3\t\3\t\5\t\u00a7\n\t\3\n\3\n\3\n\3\n\3\13\3\13\3\13\3\13\5\13\u00b1"+
-		"\n\13\3\13\3\13\3\f\3\f\3\f\5\f\u00b8\n\f\3\f\5\f\u00bb\n\f\3\f\3\f\3"+
-		"\f\5\f\u00c0\n\f\3\f\3\f\5\f\u00c4\n\f\3\r\3\r\3\r\3\r\5\r\u00ca\n\r\3"+
-		"\r\5\r\u00cd\n\r\3\r\3\r\3\r\5\r\u00d2\n\r\3\16\3\16\3\16\3\16\3\16\3"+
-		"\16\3\16\5\16\u00db\n\16\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17"+
-		"\5\17\u00e6\n\17\3\17\3\17\3\17\3\17\6\17\u00ec\n\17\r\17\16\17\u00ed"+
-		"\3\17\3\17\3\20\3\20\3\20\3\20\3\20\5\20\u00f7\n\20\3\20\3\20\5\20\u00fb"+
-		"\n\20\6\20\u00fd\n\20\r\20\16\20\u00fe\3\20\3\20\3\20\3\21\3\21\3\21\3"+
-		"\21\3\21\3\21\3\22\3\22\3\22\3\22\6\22\u010e\n\22\r\22\16\22\u010f\3\22"+
-		"\3\22\3\23\3\23\3\23\5\23\u0117\n\23\3\24\3\24\3\24\3\25\3\25\3\25\3\26"+
-		"\3\26\3\26\3\27\3\27\3\27\3\30\3\30\3\30\3\30\3\30\5\30\u012a\n\30\3\31"+
-		"\3\31\3\31\3\31\5\31\u0130\n\31\3\32\3\32\3\32\3\33\3\33\3\33\3\33\3\33"+
-		"\5\33\u013a\n\33\3\34\3\34\3\34\3\34\5\34\u0140\n\34\3\34\3\34\3\34\5"+
-		"\34\u0145\n\34\3\34\3\34\3\35\3\35\3\35\2\2\36\2\4\6\b\n\f\16\20\22\24"+
-		"\26\30\32\34\36 \"$&(*,.\60\62\64\668\2\5\4\2\36\37\"$\3\2 !\5\2\7\7\t"+
-		"\f\20\20\2\u0161\2=\3\2\2\2\4@\3\2\2\2\6w\3\2\2\2\by\3\2\2\2\n\u0081\3"+
-		"\2\2\2\f\u0083\3\2\2\2\16\u008b\3\2\2\2\20\u00a2\3\2\2\2\22\u00a8\3\2"+
-		"\2\2\24\u00ac\3\2\2\2\26\u00c3\3\2\2\2\30\u00c5\3\2\2\2\32\u00d3\3\2\2"+
-		"\2\34\u00de\3\2\2\2\36\u00f1\3\2\2\2 \u0103\3\2\2\2\"\u0109\3\2\2\2$\u0113"+
-		"\3\2\2\2&\u0118\3\2\2\2(\u011b\3\2\2\2*\u011e\3\2\2\2,\u0121\3\2\2\2."+
-		"\u0129\3\2\2\2\60\u012b\3\2\2\2\62\u0131\3\2\2\2\64\u0139\3\2\2\2\66\u013b"+
-		"\3\2\2\28\u0148\3\2\2\2:<\5\4\3\2;:\3\2\2\2<?\3\2\2\2=;\3\2\2\2=>\3\2"+
-		"\2\2>\3\3\2\2\2?=\3\2\2\2@A\7\4\2\2AH\7\65\2\2BE\7\5\2\2CF\58\35\2DF\7"+
-		"\65\2\2EC\3\2\2\2ED\3\2\2\2FI\3\2\2\2GI\3\2\2\2HB\3\2\2\2HG\3\2\2\2IJ"+
-		"\3\2\2\2JN\7(\2\2KM\5\66\34\2LK\3\2\2\2MP\3\2\2\2NL\3\2\2\2NO\3\2\2\2"+
-		"OT\3\2\2\2PN\3\2\2\2QS\5\6\4\2RQ\3\2\2\2SV\3\2\2\2TR\3\2\2\2TU\3\2\2\2"+
-		"UW\3\2\2\2VT\3\2\2\2WX\7)\2\2XY\7\'\2\2Y\5\3\2\2\2Z[\7\65\2\2[^\7*\2\2"+
-		"\\_\5\62\32\2]_\3\2\2\2^\\\3\2\2\2^]\3\2\2\2_`\3\2\2\2`a\7+\2\2ad\7/\2"+
-		"\2be\7\65\2\2ce\58\35\2db\3\2\2\2dc\3\2\2\2ef\3\2\2\2fg\7(\2\2gh\5\b\5"+
-		"\2hi\7)\2\2ij\7\'\2\2jx\3\2\2\2kl\7\65\2\2lo\7/\2\2mp\58\35\2np\7\65\2"+
-		"\2om\3\2\2\2on\3\2\2\2pt\3\2\2\2qr\7\35\2\2ru\5\b\5\2su\3\2\2\2tq\3\2"+
-		"\2\2ts\3\2\2\2uv\3\2\2\2vx\7\'\2\2wZ\3\2\2\2wk\3\2\2\2x\7\3\2\2\2yz\5"+
-		"\f\7\2z{\5\n\6\2{\t\3\2\2\2|}\t\2\2\2}~\5\f\7\2~\177\5\n\6\2\177\u0082"+
-		"\3\2\2\2\u0080\u0082\3\2\2\2\u0081|\3\2\2\2\u0081\u0080\3\2\2\2\u0082"+
-		"\13\3\2\2\2\u0083\u0084\5\20\t\2\u0084\u0085\5\16\b\2\u0085\r\3\2\2\2"+
-		"\u0086\u0087\t\3\2\2\u0087\u0088\5\20\t\2\u0088\u0089\5\16\b\2\u0089\u008c"+
-		"\3\2\2\2\u008a\u008c\3\2\2\2\u008b\u0086\3\2\2\2\u008b\u008a\3\2\2\2\u008c"+
-		"\17\3\2\2\2\u008d\u00a3\5\22\n\2\u008e\u00a3\5\24\13\2\u008f\u00a3\5\32"+
-		"\16\2\u0090\u00a3\5\34\17\2\u0091\u00a3\5\36\20\2\u0092\u00a3\5 \21\2"+
-		"\u0093\u00a3\5\"\22\2\u0094\u00a3\5$\23\2\u0095\u00a3\5&\24\2\u0096\u00a3"+
-		"\5*\26\2\u0097\u00a3\5(\25\2\u0098\u0099\7*\2\2\u0099\u009a\5\b\5\2\u009a"+
-		"\u009b\7+\2\2\u009b\u00a3\3\2\2\2\u009c\u00a3\7\b\2\2\u009d\u00a3\7\65"+
-		"\2\2\u009e\u00a3\7\63\2\2\u009f\u00a3\7\64\2\2\u00a0\u00a3\7\r\2\2\u00a1"+
-		"\u00a3\7\16\2\2\u00a2\u008d\3\2\2\2\u00a2\u008e\3\2\2\2\u00a2\u008f\3"+
-		"\2\2\2\u00a2\u0090\3\2\2\2\u00a2\u0091\3\2\2\2\u00a2\u0092\3\2\2\2\u00a2"+
-		"\u0093\3\2\2\2\u00a2\u0094\3\2\2\2\u00a2\u0095\3\2\2\2\u00a2\u0096\3\2"+
-		"\2\2\u00a2\u0097\3\2\2\2\u00a2\u0098\3\2\2\2\u00a2\u009c\3\2\2\2\u00a2"+
-		"\u009d\3\2\2\2\u00a2\u009e\3\2\2\2\u00a2\u009f\3\2\2\2\u00a2\u00a0\3\2"+
-		"\2\2\u00a2\u00a1\3\2\2\2\u00a3\u00a6\3\2\2\2\u00a4\u00a7\5\26\f\2\u00a5"+
-		"\u00a7\3\2\2\2\u00a6\u00a4\3\2\2\2\u00a6\u00a5\3\2\2\2\u00a7\21\3\2\2"+
-		"\2\u00a8\u00a9\7\65\2\2\u00a9\u00aa\7\35\2\2\u00aa\u00ab\5\b\5\2\u00ab"+
-		"\23\3\2\2\2\u00ac\u00ad\7\65\2\2\u00ad\u00b0\7*\2\2\u00ae\u00b1\5,\27"+
-		"\2\u00af\u00b1\3\2\2\2\u00b0\u00ae\3\2\2\2\u00b0\u00af\3\2\2\2\u00b1\u00b2"+
-		"\3\2\2\2\u00b2\u00b3\7+\2\2\u00b3\25\3\2\2\2\u00b4\u00b7\7\61\2\2\u00b5"+
-		"\u00b8\58\35\2\u00b6\u00b8\7\65\2\2\u00b7\u00b5\3\2\2\2\u00b7\u00b6\3"+
-		"\2\2\2\u00b8\u00bb\3\2\2\2\u00b9\u00bb\3\2\2\2\u00ba\u00b4\3\2\2\2\u00ba"+
-		"\u00b9\3\2\2\2\u00bb\u00bc\3\2\2\2\u00bc\u00bf\7\60\2\2\u00bd\u00c0\5"+
-		"\24\13\2\u00be\u00c0\7\65\2\2\u00bf\u00bd\3\2\2\2\u00bf\u00be\3\2\2\2"+
-		"\u00c0\u00c1\3\2\2\2\u00c1\u00c4\5\26\f\2\u00c2\u00c4\3\2\2\2\u00c3\u00ba"+
-		"\3\2\2\2\u00c3\u00c2\3\2\2\2\u00c4\27\3\2\2\2\u00c5\u00cc\7\65\2\2\u00c6"+
-		"\u00c9\7\61\2\2\u00c7\u00ca\58\35\2\u00c8\u00ca\7\65\2\2\u00c9\u00c7\3"+
-		"\2\2\2\u00c9\u00c8\3\2\2\2\u00ca\u00cd\3\2\2\2\u00cb\u00cd\3\2\2\2\u00cc"+
-		"\u00c6\3\2\2\2\u00cc\u00cb\3\2\2\2\u00cd\u00ce\3\2\2\2\u00ce\u00d1\7\60"+
-		"\2\2\u00cf\u00d2\5\24\13\2\u00d0\u00d2\7\65\2\2\u00d1\u00cf\3\2\2\2\u00d1"+
-		"\u00d0\3\2\2\2\u00d2\31\3\2\2\2\u00d3\u00d4\7\21\2\2\u00d4\u00d5\5\b\5"+
-		"\2\u00d5\u00d6\7\22\2\2\u00d6\u00da\5\b\5\2\u00d7\u00d8\7\23\2\2\u00d8"+
-		"\u00db\5\b\5\2\u00d9\u00db\3\2\2\2\u00da\u00d7\3\2\2\2\u00da\u00d9\3\2"+
-		"\2\2\u00db\u00dc\3\2\2\2\u00dc\u00dd\7\24\2\2\u00dd\33\3\2\2\2\u00de\u00df"+
-		"\7\25\2\2\u00df\u00e0\5\b\5\2\u00e0\u00eb\7\26\2\2\u00e1\u00e2\7\65\2"+
-		"\2\u00e2\u00e5\7/\2\2\u00e3\u00e6\58\35\2\u00e4\u00e6\7\65\2\2\u00e5\u00e3"+
-		"\3\2\2\2\u00e5\u00e4\3\2\2\2\u00e6\u00e7\3\2\2\2\u00e7\u00e8\7\3\2\2\u00e8"+
-		"\u00e9\5\b\5\2\u00e9\u00ea\7\'\2\2\u00ea\u00ec\3\2\2\2\u00eb\u00e1\3\2"+
-		"\2\2\u00ec\u00ed\3\2\2\2\u00ed\u00eb\3\2\2\2\u00ed\u00ee\3\2\2\2\u00ee"+
-		"\u00ef\3\2\2\2\u00ef\u00f0\7\27\2\2\u00f0\35\3\2\2\2\u00f1\u00fc\7\33"+
-		"\2\2\u00f2\u00f3\7\65\2\2\u00f3\u00f6\7/\2\2\u00f4\u00f7\58\35\2\u00f5"+
-		"\u00f7\7\65\2\2\u00f6\u00f4\3\2\2\2\u00f6\u00f5\3\2\2\2\u00f7\u00f8\3"+
-		"\2\2\2\u00f8\u00fa\7\35\2\2\u00f9\u00fb\5\b\5\2\u00fa\u00f9\3\2\2\2\u00fa"+
-		"\u00fb\3\2\2\2\u00fb\u00fd\3\2\2\2\u00fc\u00f2\3\2\2\2\u00fd\u00fe\3\2"+
-		"\2\2\u00fe\u00fc\3\2\2\2\u00fe\u00ff\3\2\2\2\u00ff\u0100\3\2\2\2\u0100"+
-		"\u0101\7\34\2\2\u0101\u0102\5\b\5\2\u0102\37\3\2\2\2\u0103\u0104\7\30"+
-		"\2\2\u0104\u0105\5\b\5\2\u0105\u0106\7\31\2\2\u0106\u0107\5\b\5\2\u0107"+
-		"\u0108\7\32\2\2\u0108!\3\2\2\2\u0109\u010d\7(\2\2\u010a\u010b\5\b\5\2"+
-		"\u010b\u010c\7\'\2\2\u010c\u010e\3\2\2\2\u010d\u010a\3\2\2\2\u010e\u010f"+
-		"\3\2\2\2\u010f\u010d\3\2\2\2\u010f\u0110\3\2\2\2\u0110\u0111\3\2\2\2\u0111"+
-		"\u0112\7)\2\2\u0112#\3\2\2\2\u0113\u0116\7\6\2\2\u0114\u0117\58\35\2\u0115"+
-		"\u0117\7\65\2\2\u0116\u0114\3\2\2\2\u0116\u0115\3\2\2\2\u0117%\3\2\2\2"+
-		"\u0118\u0119\7\17\2\2\u0119\u011a\5\b\5\2\u011a\'\3\2\2\2\u011b\u011c"+
-		"\7&\2\2\u011c\u011d\5\b\5\2\u011d)\3\2\2\2\u011e\u011f\7%\2\2\u011f\u0120"+
-		"\5\b\5\2\u0120+\3\2\2\2\u0121\u0122\5\b\5\2\u0122\u0123\5.\30\2\u0123"+
-		"-\3\2\2\2\u0124\u0125\7.\2\2\u0125\u0126\5\b\5\2\u0126\u0127\5.\30\2\u0127"+
-		"\u012a\3\2\2\2\u0128\u012a\3\2\2\2\u0129\u0124\3\2\2\2\u0129\u0128\3\2"+
-		"\2\2\u012a/\3\2\2\2\u012b\u012c\7\65\2\2\u012c\u012f\7/\2\2\u012d\u0130"+
-		"\58\35\2\u012e\u0130\7\65\2\2\u012f\u012d\3\2\2\2\u012f\u012e\3\2\2\2"+
-		"\u0130\61\3\2\2\2\u0131\u0132\5\60\31\2\u0132\u0133\5\64\33\2\u0133\63"+
-		"\3\2\2\2\u0134\u0135\7.\2\2\u0135\u0136\5\60\31\2\u0136\u0137\5\64\33"+
-		"\2\u0137\u013a\3\2\2\2\u0138\u013a\3\2\2\2\u0139\u0134\3\2\2\2\u0139\u0138"+
-		"\3\2\2\2\u013a\65\3\2\2\2\u013b\u013c\7\65\2\2\u013c\u013f\7/\2\2\u013d"+
-		"\u0140\58\35\2\u013e\u0140\7\65\2\2\u013f\u013d\3\2\2\2\u013f\u013e\3"+
-		"\2\2\2\u0140\u0144\3\2\2\2\u0141\u0142\7\35\2\2\u0142\u0145\5\b\5\2\u0143"+
-		"\u0145\3\2\2\2\u0144\u0141\3\2\2\2\u0144\u0143\3\2\2\2\u0145\u0146\3\2"+
-		"\2\2\u0146\u0147\7\'\2\2\u0147\67\3\2\2\2\u0148\u0149\t\4\2\2\u01499\3"+
-		"\2\2\2%=EHNT^dotw\u0081\u008b\u00a2\u00a6\u00b0\u00b7\u00ba\u00bf\u00c3"+
-		"\u00c9\u00cc\u00d1\u00da\u00e5\u00ed\u00f6\u00fa\u00fe\u010f\u0116\u0129"+
-		"\u012f\u0139\u013f\u0144";
+		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\3\2\7\2>\n\2\f\2\16"+
+		"\2A\13\2\3\3\3\3\3\3\3\3\3\3\5\3H\n\3\3\3\5\3K\n\3\3\3\3\3\7\3O\n\3\f"+
+		"\3\16\3R\13\3\3\3\7\3U\n\3\f\3\16\3X\13\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4"+
+		"\5\4a\n\4\3\4\3\4\3\4\3\4\5\4g\n\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
+		"\5\4r\n\4\3\4\3\4\3\4\5\4w\n\4\3\4\5\4z\n\4\3\5\3\5\3\5\3\6\3\6\3\6\3"+
+		"\6\3\6\5\6\u0084\n\6\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\5\b\u008e\n\b\3\t"+
+		"\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3"+
+		"\t\3\t\3\t\5\t\u00a5\n\t\3\t\3\t\5\t\u00a9\n\t\3\n\3\n\3\n\3\n\3\13\3"+
+		"\13\3\13\3\13\5\13\u00b3\n\13\3\13\3\13\3\f\3\f\3\f\5\f\u00ba\n\f\3\f"+
+		"\5\f\u00bd\n\f\3\f\3\f\3\f\5\f\u00c2\n\f\3\f\3\f\5\f\u00c6\n\f\3\r\3\r"+
+		"\5\r\u00ca\n\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\17\3\17\3\17\3\17"+
+		"\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5\17\u00df\n\17\3\20\3\20\3\20"+
+		"\3\20\3\20\3\20\3\20\5\20\u00e8\n\20\3\20\3\20\3\20\3\20\6\20\u00ee\n"+
+		"\20\r\20\16\20\u00ef\3\20\3\20\3\21\3\21\3\21\3\21\3\21\5\21\u00f9\n\21"+
+		"\3\21\3\21\5\21\u00fd\n\21\6\21\u00ff\n\21\r\21\16\21\u0100\3\21\3\21"+
+		"\3\21\3\22\3\22\3\22\3\22\3\22\3\22\3\23\3\23\3\23\3\23\6\23\u0110\n\23"+
+		"\r\23\16\23\u0111\3\23\3\23\3\24\3\24\3\24\5\24\u0119\n\24\3\25\3\25\3"+
+		"\25\3\26\3\26\3\26\3\27\3\27\3\27\3\30\3\30\3\30\3\31\3\31\3\31\3\31\3"+
+		"\31\5\31\u012c\n\31\3\32\3\32\3\32\3\32\5\32\u0132\n\32\3\33\3\33\3\33"+
+		"\3\34\3\34\3\34\3\34\3\34\5\34\u013c\n\34\3\35\3\35\3\35\3\35\5\35\u0142"+
+		"\n\35\3\35\3\35\3\35\5\35\u0147\n\35\3\35\3\35\3\36\3\36\3\36\2\2\37\2"+
+		"\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:\2\5\4\2\36"+
+		"\37\"$\3\2 !\5\2\7\7\t\f\20\20\2\u0160\2?\3\2\2\2\4B\3\2\2\2\6y\3\2\2"+
+		"\2\b{\3\2\2\2\n\u0083\3\2\2\2\f\u0085\3\2\2\2\16\u008d\3\2\2\2\20\u00a4"+
+		"\3\2\2\2\22\u00aa\3\2\2\2\24\u00ae\3\2\2\2\26\u00c5\3\2\2\2\30\u00c9\3"+
+		"\2\2\2\32\u00cb\3\2\2\2\34\u00de\3\2\2\2\36\u00e0\3\2\2\2 \u00f3\3\2\2"+
+		"\2\"\u0105\3\2\2\2$\u010b\3\2\2\2&\u0115\3\2\2\2(\u011a\3\2\2\2*\u011d"+
+		"\3\2\2\2,\u0120\3\2\2\2.\u0123\3\2\2\2\60\u012b\3\2\2\2\62\u012d\3\2\2"+
+		"\2\64\u0133\3\2\2\2\66\u013b\3\2\2\28\u013d\3\2\2\2:\u014a\3\2\2\2<>\5"+
+		"\4\3\2=<\3\2\2\2>A\3\2\2\2?=\3\2\2\2?@\3\2\2\2@\3\3\2\2\2A?\3\2\2\2BC"+
+		"\7\4\2\2CJ\7\65\2\2DG\7\5\2\2EH\5:\36\2FH\7\65\2\2GE\3\2\2\2GF\3\2\2\2"+
+		"HK\3\2\2\2IK\3\2\2\2JD\3\2\2\2JI\3\2\2\2KL\3\2\2\2LP\7(\2\2MO\58\35\2"+
+		"NM\3\2\2\2OR\3\2\2\2PN\3\2\2\2PQ\3\2\2\2QV\3\2\2\2RP\3\2\2\2SU\5\6\4\2"+
+		"TS\3\2\2\2UX\3\2\2\2VT\3\2\2\2VW\3\2\2\2WY\3\2\2\2XV\3\2\2\2YZ\7)\2\2"+
+		"Z[\7\'\2\2[\5\3\2\2\2\\]\7\65\2\2]`\7*\2\2^a\5\64\33\2_a\3\2\2\2`^\3\2"+
+		"\2\2`_\3\2\2\2ab\3\2\2\2bc\7+\2\2cf\7/\2\2dg\7\65\2\2eg\5:\36\2fd\3\2"+
+		"\2\2fe\3\2\2\2gh\3\2\2\2hi\7(\2\2ij\5\b\5\2jk\7)\2\2kl\7\'\2\2lz\3\2\2"+
+		"\2mn\7\65\2\2nq\7/\2\2or\5:\36\2pr\7\65\2\2qo\3\2\2\2qp\3\2\2\2rv\3\2"+
+		"\2\2st\7\35\2\2tw\5\b\5\2uw\3\2\2\2vs\3\2\2\2vu\3\2\2\2wx\3\2\2\2xz\7"+
+		"\'\2\2y\\\3\2\2\2ym\3\2\2\2z\7\3\2\2\2{|\5\f\7\2|}\5\n\6\2}\t\3\2\2\2"+
+		"~\177\t\2\2\2\177\u0080\5\f\7\2\u0080\u0081\5\n\6\2\u0081\u0084\3\2\2"+
+		"\2\u0082\u0084\3\2\2\2\u0083~\3\2\2\2\u0083\u0082\3\2\2\2\u0084\13\3\2"+
+		"\2\2\u0085\u0086\5\20\t\2\u0086\u0087\5\16\b\2\u0087\r\3\2\2\2\u0088\u0089"+
+		"\t\3\2\2\u0089\u008a\5\20\t\2\u008a\u008b\5\16\b\2\u008b\u008e\3\2\2\2"+
+		"\u008c\u008e\3\2\2\2\u008d\u0088\3\2\2\2\u008d\u008c\3\2\2\2\u008e\17"+
+		"\3\2\2\2\u008f\u00a5\5\22\n\2\u0090\u00a5\5\24\13\2\u0091\u00a5\5\30\r"+
+		"\2\u0092\u00a5\5\36\20\2\u0093\u00a5\5 \21\2\u0094\u00a5\5\"\22\2\u0095"+
+		"\u00a5\5$\23\2\u0096\u00a5\5&\24\2\u0097\u00a5\5(\25\2\u0098\u00a5\5,"+
+		"\27\2\u0099\u00a5\5*\26\2\u009a\u009b\7*\2\2\u009b\u009c\5\b\5\2\u009c"+
+		"\u009d\7+\2\2\u009d\u00a5\3\2\2\2\u009e\u00a5\7\b\2\2\u009f\u00a5\7\65"+
+		"\2\2\u00a0\u00a5\7\63\2\2\u00a1\u00a5\7\64\2\2\u00a2\u00a5\7\r\2\2\u00a3"+
+		"\u00a5\7\16\2\2\u00a4\u008f\3\2\2\2\u00a4\u0090\3\2\2\2\u00a4\u0091\3"+
+		"\2\2\2\u00a4\u0092\3\2\2\2\u00a4\u0093\3\2\2\2\u00a4\u0094\3\2\2\2\u00a4"+
+		"\u0095\3\2\2\2\u00a4\u0096\3\2\2\2\u00a4\u0097\3\2\2\2\u00a4\u0098\3\2"+
+		"\2\2\u00a4\u0099\3\2\2\2\u00a4\u009a\3\2\2\2\u00a4\u009e\3\2\2\2\u00a4"+
+		"\u009f\3\2\2\2\u00a4\u00a0\3\2\2\2\u00a4\u00a1\3\2\2\2\u00a4\u00a2\3\2"+
+		"\2\2\u00a4\u00a3\3\2\2\2\u00a5\u00a8\3\2\2\2\u00a6\u00a9\5\26\f\2\u00a7"+
+		"\u00a9\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a8\u00a7\3\2\2\2\u00a9\21\3\2\2"+
+		"\2\u00aa\u00ab\7\65\2\2\u00ab\u00ac\7\35\2\2\u00ac\u00ad\5\b\5\2\u00ad"+
+		"\23\3\2\2\2\u00ae\u00af\7\65\2\2\u00af\u00b2\7*\2\2\u00b0\u00b3\5.\30"+
+		"\2\u00b1\u00b3\3\2\2\2\u00b2\u00b0\3\2\2\2\u00b2\u00b1\3\2\2\2\u00b3\u00b4"+
+		"\3\2\2\2\u00b4\u00b5\7+\2\2\u00b5\25\3\2\2\2\u00b6\u00b9\7\61\2\2\u00b7"+
+		"\u00ba\5:\36\2\u00b8\u00ba\7\65\2\2\u00b9\u00b7\3\2\2\2\u00b9\u00b8\3"+
+		"\2\2\2\u00ba\u00bd\3\2\2\2\u00bb\u00bd\3\2\2\2\u00bc\u00b6\3\2\2\2\u00bc"+
+		"\u00bb\3\2\2\2\u00bd\u00be\3\2\2\2\u00be\u00c1\7\60\2\2\u00bf\u00c2\5"+
+		"\24\13\2\u00c0\u00c2\7\65\2\2\u00c1\u00bf\3\2\2\2\u00c1\u00c0\3\2\2\2"+
+		"\u00c2\u00c3\3\2\2\2\u00c3\u00c6\5\26\f\2\u00c4\u00c6\3\2\2\2\u00c5\u00bc"+
+		"\3\2\2\2\u00c5\u00c4\3\2\2\2\u00c6\27\3\2\2\2\u00c7\u00ca\5\32\16\2\u00c8"+
+		"\u00ca\5\34\17\2\u00c9\u00c7\3\2\2\2\u00c9\u00c8\3\2\2\2\u00ca\31\3\2"+
+		"\2\2\u00cb\u00cc\7\21\2\2\u00cc\u00cd\5\b\5\2\u00cd\u00ce\7\22\2\2\u00ce"+
+		"\u00cf\5\32\16\2\u00cf\u00d0\7\23\2\2\u00d0\u00d1\5\32\16\2\u00d1\33\3"+
+		"\2\2\2\u00d2\u00d3\7\21\2\2\u00d3\u00d4\5\b\5\2\u00d4\u00d5\7\22\2\2\u00d5"+
+		"\u00d6\5\30\r\2\u00d6\u00df\3\2\2\2\u00d7\u00d8\7\21\2\2\u00d8\u00d9\5"+
+		"\b\5\2\u00d9\u00da\7\22\2\2\u00da\u00db\5\32\16\2\u00db\u00dc\7\23\2\2"+
+		"\u00dc\u00dd\5\34\17\2\u00dd\u00df\3\2\2\2\u00de\u00d2\3\2\2\2\u00de\u00d7"+
+		"\3\2\2\2\u00df\35\3\2\2\2\u00e0\u00e1\7\25\2\2\u00e1\u00e2\5\b\5\2\u00e2"+
+		"\u00ed\7\26\2\2\u00e3\u00e4\7\65\2\2\u00e4\u00e7\7/\2\2\u00e5\u00e8\5"+
+		":\36\2\u00e6\u00e8\7\65\2\2\u00e7\u00e5\3\2\2\2\u00e7\u00e6\3\2\2\2\u00e8"+
+		"\u00e9\3\2\2\2\u00e9\u00ea\7\3\2\2\u00ea\u00eb\5\b\5\2\u00eb\u00ec\7\'"+
+		"\2\2\u00ec\u00ee\3\2\2\2\u00ed\u00e3\3\2\2\2\u00ee\u00ef\3\2\2\2\u00ef"+
+		"\u00ed\3\2\2\2\u00ef\u00f0\3\2\2\2\u00f0\u00f1\3\2\2\2\u00f1\u00f2\7\27"+
+		"\2\2\u00f2\37\3\2\2\2\u00f3\u00fe\7\33\2\2\u00f4\u00f5\7\65\2\2\u00f5"+
+		"\u00f8\7/\2\2\u00f6\u00f9\5:\36\2\u00f7\u00f9\7\65\2\2\u00f8\u00f6\3\2"+
+		"\2\2\u00f8\u00f7\3\2\2\2\u00f9\u00fa\3\2\2\2\u00fa\u00fc\7\35\2\2\u00fb"+
+		"\u00fd\5\b\5\2\u00fc\u00fb\3\2\2\2\u00fc\u00fd\3\2\2\2\u00fd\u00ff\3\2"+
+		"\2\2\u00fe\u00f4\3\2\2\2\u00ff\u0100\3\2\2\2\u0100\u00fe\3\2\2\2\u0100"+
+		"\u0101\3\2\2\2\u0101\u0102\3\2\2\2\u0102\u0103\7\34\2\2\u0103\u0104\5"+
+		"\b\5\2\u0104!\3\2\2\2\u0105\u0106\7\30\2\2\u0106\u0107\5\b\5\2\u0107\u0108"+
+		"\7\31\2\2\u0108\u0109\5\b\5\2\u0109\u010a\7\32\2\2\u010a#\3\2\2\2\u010b"+
+		"\u010f\7(\2\2\u010c\u010d\5\b\5\2\u010d\u010e\7\'\2\2\u010e\u0110\3\2"+
+		"\2\2\u010f\u010c\3\2\2\2\u0110\u0111\3\2\2\2\u0111\u010f\3\2\2\2\u0111"+
+		"\u0112\3\2\2\2\u0112\u0113\3\2\2\2\u0113\u0114\7)\2\2\u0114%\3\2\2\2\u0115"+
+		"\u0118\7\6\2\2\u0116\u0119\5:\36\2\u0117\u0119\7\65\2\2\u0118\u0116\3"+
+		"\2\2\2\u0118\u0117\3\2\2\2\u0119\'\3\2\2\2\u011a\u011b\7\17\2\2\u011b"+
+		"\u011c\5\b\5\2\u011c)\3\2\2\2\u011d\u011e\7&\2\2\u011e\u011f\5\b\5\2\u011f"+
+		"+\3\2\2\2\u0120\u0121\7%\2\2\u0121\u0122\5\b\5\2\u0122-\3\2\2\2\u0123"+
+		"\u0124\5\b\5\2\u0124\u0125\5\60\31\2\u0125/\3\2\2\2\u0126\u0127\7.\2\2"+
+		"\u0127\u0128\5\b\5\2\u0128\u0129\5\60\31\2\u0129\u012c\3\2\2\2\u012a\u012c"+
+		"\3\2\2\2\u012b\u0126\3\2\2\2\u012b\u012a\3\2\2\2\u012c\61\3\2\2\2\u012d"+
+		"\u012e\7\65\2\2\u012e\u0131\7/\2\2\u012f\u0132\5:\36\2\u0130\u0132\7\65"+
+		"\2\2\u0131\u012f\3\2\2\2\u0131\u0130\3\2\2\2\u0132\63\3\2\2\2\u0133\u0134"+
+		"\5\62\32\2\u0134\u0135\5\66\34\2\u0135\65\3\2\2\2\u0136\u0137\7.\2\2\u0137"+
+		"\u0138\5\62\32\2\u0138\u0139\5\66\34\2\u0139\u013c\3\2\2\2\u013a\u013c"+
+		"\3\2\2\2\u013b\u0136\3\2\2\2\u013b\u013a\3\2\2\2\u013c\67\3\2\2\2\u013d"+
+		"\u013e\7\65\2\2\u013e\u0141\7/\2\2\u013f\u0142\5:\36\2\u0140\u0142\7\65"+
+		"\2\2\u0141\u013f\3\2\2\2\u0141\u0140\3\2\2\2\u0142\u0146\3\2\2\2\u0143"+
+		"\u0144\7\35\2\2\u0144\u0147\5\b\5\2\u0145\u0147\3\2\2\2\u0146\u0143\3"+
+		"\2\2\2\u0146\u0145\3\2\2\2\u0147\u0148\3\2\2\2\u0148\u0149\7\'\2\2\u0149"+
+		"9\3\2\2\2\u014a\u014b\t\4\2\2\u014b;\3\2\2\2#?GJPV`fqvy\u0083\u008d\u00a4"+
+		"\u00a8\u00b2\u00b9\u00bc\u00c1\u00c5\u00c9\u00de\u00e7\u00ef\u00f8\u00fc"+
+		"\u0100\u0111\u0118\u012b\u0131\u013b\u0141\u0146";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

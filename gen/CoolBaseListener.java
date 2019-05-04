@@ -1,4 +1,4 @@
-// Generated from C:/Users/Mohamed Mamdouh/Desktop/Draft/COOL-Compiler\Cool.g4 by ANTLR 4.7.2
+// Generated from /home/amr/IdeaProjects/COOL Compiler/Cool.g4 by ANTLR 4.7.2
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -27,13 +27,13 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassDefiniton(CoolParser.ClassDefinitonContext ctx) { }
+	@Override public void enterClassDefinitionRule(CoolParser.ClassDefinitionRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassDefiniton(CoolParser.ClassDefinitonContext ctx) { }
+	@Override public void exitClassDefinitionRule(CoolParser.ClassDefinitionRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -63,9 +63,7 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr_(CoolParser.Expr_Context ctx) {
-
-	}
+	@Override public void enterExpr_(CoolParser.Expr_Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -113,49 +111,37 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssignmentStmt(CoolParser.AssignmentStmtContext ctx) { }
+	@Override public void enterAssignmentStmtRule(CoolParser.AssignmentStmtRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAssignmentStmt(CoolParser.AssignmentStmtContext ctx) { }
+	@Override public void exitAssignmentStmtRule(CoolParser.AssignmentStmtRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFeatureCall(CoolParser.FeatureCallContext ctx) { }
+	@Override public void enterFeatureCallRule(CoolParser.FeatureCallRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFeatureCall(CoolParser.FeatureCallContext ctx) { }
+	@Override public void exitFeatureCallRule(CoolParser.FeatureCallRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMemberAccess_(CoolParser.MemberAccess_Context ctx) { }
+	@Override public void enterMemberAccess(CoolParser.MemberAccessContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMemberAccess_(CoolParser.MemberAccess_Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMemberAcess(CoolParser.MemberAcessContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMemberAcess(CoolParser.MemberAcessContext ctx) { }
+	@Override public void exitMemberAccess(CoolParser.MemberAccessContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -173,13 +159,37 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCaseStmt(CoolParser.CaseStmtContext ctx) { }
+	@Override public void enterMatchedIfStmt(CoolParser.MatchedIfStmtContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCaseStmt(CoolParser.CaseStmtContext ctx) { }
+	@Override public void exitMatchedIfStmt(CoolParser.MatchedIfStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOpenIfStmt(CoolParser.OpenIfStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOpenIfStmt(CoolParser.OpenIfStmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCaseStmtRule(CoolParser.CaseStmtRuleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCaseStmtRule(CoolParser.CaseStmtRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -197,73 +207,73 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhileStmt(CoolParser.WhileStmtContext ctx) { }
+	@Override public void enterWhileStmtRule(CoolParser.WhileStmtRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWhileStmt(CoolParser.WhileStmtContext ctx) { }
+	@Override public void exitWhileStmtRule(CoolParser.WhileStmtRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBlock(CoolParser.BlockContext ctx) { }
+	@Override public void enterBlockRule(CoolParser.BlockRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBlock(CoolParser.BlockContext ctx) { }
+	@Override public void exitBlockRule(CoolParser.BlockRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNewObject(CoolParser.NewObjectContext ctx) { }
+	@Override public void enterNewObjectRule(CoolParser.NewObjectRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNewObject(CoolParser.NewObjectContext ctx) { }
+	@Override public void exitNewObjectRule(CoolParser.NewObjectRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIsvoidExpr(CoolParser.IsvoidExprContext ctx) { }
+	@Override public void enterIsvoidExprRule(CoolParser.IsvoidExprRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIsvoidExpr(CoolParser.IsvoidExprContext ctx) { }
+	@Override public void exitIsvoidExprRule(CoolParser.IsvoidExprRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInvrseExpr(CoolParser.InvrseExprContext ctx) { }
+	@Override public void enterInvrseExprRule(CoolParser.InvrseExprRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInvrseExpr(CoolParser.InvrseExprContext ctx) { }
+	@Override public void exitInvrseExprRule(CoolParser.InvrseExprRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNotExpr(CoolParser.NotExprContext ctx) { }
+	@Override public void enterNotExprRule(CoolParser.NotExprRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNotExpr(CoolParser.NotExprContext ctx) { }
+	@Override public void exitNotExprRule(CoolParser.NotExprRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

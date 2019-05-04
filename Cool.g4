@@ -64,12 +64,25 @@ memberAccess :
 
 
 ifStmt :
+    matchedIfStmt
+    |
+    openIfStmt
+    ;
+
+matchedIfStmt:
     IF expr THEN
-        expr
-    (ELSE
-        expr | )
-    FI
-    # ifStmtRule
+        matchedIfStmt
+    ELSE
+        matchedIfStmt
+    ;
+
+openIfStmt:
+    IF expr THEN ifStmt
+    |
+    IF expr THEN
+        matchedIfStmt
+    ELSE
+        openIfStmt
     ;
 
 caseStmt:
