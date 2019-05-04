@@ -1,3 +1,5 @@
+import gen.CoolBaseListener;
+import gen.CoolParser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 
@@ -8,7 +10,7 @@ import java.io.IOException;
 @SuppressWarnings("ALL")
 public class ParserWrapper {
 
-    private  CoolParser coolParser;
+    private CoolParser coolParser;
     private  String fileName;
 
     public ParserWrapper(String fileName)throws IOException {

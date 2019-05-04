@@ -6,9 +6,8 @@ import translation.Translator;
 
 public class VariableDeclarationTranslator extends Translator {
 
-    private ParseTree parseTree;
     public VariableDeclarationTranslator(ParseTree parseTree) {
-        this.parseTree = parseTree;
+        super(parseTree);
     }
 
     @Override
