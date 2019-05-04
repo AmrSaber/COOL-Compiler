@@ -4,14 +4,14 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import translation.Temp;
 import translation.Translator;
 
-public class ExprTranslator extends Translator {
+public class VariableDeclarationTranslator extends Translator {
 
-    public ExprTranslator(ParseTree parseTree) {
+    public VariableDeclarationTranslator(ParseTree parseTree) {
         super(parseTree);
     }
 
     @Override
     public Temp generate() {
-        return new Temp();
+        return null;
     }
 }
