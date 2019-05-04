@@ -19,7 +19,7 @@ public class NotExprTranslator extends Translator {
     public Temp generate() {
         Temp childTmp = new ExprTranslator(parseTree.getChild(1)).generate();
         Temp myTemp = new Temp();
-        TranslationHandler.write(myTemp.toString() + " := not " + childTmp.toString());
+        TranslationHandler.write(myTemp.toString() + " := NOT " + childTmp.toString());
         childTmp.release();
         return myTemp;
     }

@@ -18,7 +18,7 @@ public class InvrseExprTranslator extends Translator {
     public Temp generate() {
         Temp childTemp = new ExprTranslator(parseTree.getChild(1)).generate();
         Temp myTemp = new Temp();
-        TranslationHandler.write(myTemp.toString() + " := inv " + childTemp.toString());
+        TranslationHandler.write(myTemp.toString() + " := INV " + childTemp.toString());
         childTemp.release();
         return myTemp;
     }
