@@ -29,6 +29,16 @@ public interface CoolListener extends ParseTreeListener {
 	 */
 	void exitClassDefinitionRule(CoolParser.ClassDefinitionRuleContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CoolParser#globals}.
+	 * @param ctx the parse tree
+	 */
+	void enterGlobals(CoolParser.GlobalsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CoolParser#globals}.
+	 * @param ctx the parse tree
+	 */
+	void exitGlobals(CoolParser.GlobalsContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CoolParser#featureDefinition}.
 	 * @param ctx the parse tree
 	 */
@@ -49,16 +59,6 @@ public interface CoolListener extends ParseTreeListener {
 	 */
 	void exitExpr(CoolParser.ExprContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CoolParser#expr_}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpr_(CoolParser.Expr_Context ctx);
-	/**
-	 * Exit a parse tree produced by {@link CoolParser#expr_}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpr_(CoolParser.Expr_Context ctx);
-	/**
 	 * Enter a parse tree produced by {@link CoolParser#term}.
 	 * @param ctx the parse tree
 	 */
@@ -68,16 +68,6 @@ public interface CoolListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTerm(CoolParser.TermContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CoolParser#term_}.
-	 * @param ctx the parse tree
-	 */
-	void enterTerm_(CoolParser.Term_Context ctx);
-	/**
-	 * Exit a parse tree produced by {@link CoolParser#term_}.
-	 * @param ctx the parse tree
-	 */
-	void exitTerm_(CoolParser.Term_Context ctx);
 	/**
 	 * Enter a parse tree produced by {@link CoolParser#value}.
 	 * @param ctx the parse tree
@@ -123,35 +113,17 @@ public interface CoolListener extends ParseTreeListener {
 	 */
 	void exitMemberAccess(CoolParser.MemberAccessContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CoolParser#ifStmt}.
+	 * Enter a parse tree produced by the {@code ifStmtRule}
+	 * labeled alternative in {@link CoolParser#ifStmt}.
 	 * @param ctx the parse tree
 	 */
-	void enterIfStmt(CoolParser.IfStmtContext ctx);
+	void enterIfStmtRule(CoolParser.IfStmtRuleContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CoolParser#ifStmt}.
+	 * Exit a parse tree produced by the {@code ifStmtRule}
+	 * labeled alternative in {@link CoolParser#ifStmt}.
 	 * @param ctx the parse tree
 	 */
-	void exitIfStmt(CoolParser.IfStmtContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CoolParser#matchedIfStmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterMatchedIfStmt(CoolParser.MatchedIfStmtContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CoolParser#matchedIfStmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitMatchedIfStmt(CoolParser.MatchedIfStmtContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CoolParser#openIfStmt}.
-	 * @param ctx the parse tree
-	 */
-	void enterOpenIfStmt(CoolParser.OpenIfStmtContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CoolParser#openIfStmt}.
-	 * @param ctx the parse tree
-	 */
-	void exitOpenIfStmt(CoolParser.OpenIfStmtContext ctx);
+	void exitIfStmtRule(CoolParser.IfStmtRuleContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code caseStmtRule}
 	 * labeled alternative in {@link CoolParser#caseStmt}.

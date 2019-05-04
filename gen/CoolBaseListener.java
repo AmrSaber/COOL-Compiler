@@ -39,6 +39,18 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterGlobals(CoolParser.GlobalsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitGlobals(CoolParser.GlobalsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFeatureDefinition(CoolParser.FeatureDefinitionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -63,18 +75,6 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpr_(CoolParser.Expr_Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpr_(CoolParser.Expr_Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterTerm(CoolParser.TermContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -82,18 +82,6 @@ public class CoolBaseListener implements CoolListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTerm(CoolParser.TermContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTerm_(CoolParser.Term_Context ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTerm_(CoolParser.Term_Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -147,37 +135,13 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfStmt(CoolParser.IfStmtContext ctx) { }
+	@Override public void enterIfStmtRule(CoolParser.IfStmtRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIfStmt(CoolParser.IfStmtContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMatchedIfStmt(CoolParser.MatchedIfStmtContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMatchedIfStmt(CoolParser.MatchedIfStmtContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterOpenIfStmt(CoolParser.OpenIfStmtContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOpenIfStmt(CoolParser.OpenIfStmtContext ctx) { }
+	@Override public void exitIfStmtRule(CoolParser.IfStmtRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -22,14 +22,9 @@ featureDefinition:
     CLOSING_CURLY_BRACKET SEMICOLON
   | ID COLON (type|ID) (OP_ASSIGNMENT expr |) SEMICOLON;
 
-
 // statements
-expr: term expr_;
-
-expr_: op=(OP_ADD|OP_SUB|RELOP_EQ|RELOP_LE|RELOP_LT) term expr_ | ;
-
-term: value term_;
-term_: op=(OP_MUL|OP_DIV) value term_|;
+expr: expr op=(OP_ADD|OP_SUB|RELOP_EQ|RELOP_LE|RELOP_LT) term | term;
+term: term op=(OP_MUL|OP_DIV) value | value;
 
 value: (assignmentStmt
    | featureCall
@@ -45,6 +40,7 @@ value: (assignmentStmt
    | OPENING_BRACKET expr CLOSING_BRACKET
    | SELF
    | ID
+   | OP_SUB NUM
    | NUM
    | LITERAL
    | TRUE

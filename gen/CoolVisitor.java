@@ -23,6 +23,12 @@ public interface CoolVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitClassDefinitionRule(CoolParser.ClassDefinitionRuleContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CoolParser#globals}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGlobals(CoolParser.GlobalsContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CoolParser#featureDefinition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -35,23 +41,11 @@ public interface CoolVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpr(CoolParser.ExprContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#expr_}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExpr_(CoolParser.Expr_Context ctx);
-	/**
 	 * Visit a parse tree produced by {@link CoolParser#term}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitTerm(CoolParser.TermContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link CoolParser#term_}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTerm_(CoolParser.Term_Context ctx);
 	/**
 	 * Visit a parse tree produced by {@link CoolParser#value}.
 	 * @param ctx the parse tree
@@ -79,23 +73,12 @@ public interface CoolVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMemberAccess(CoolParser.MemberAccessContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CoolParser#ifStmt}.
+	 * Visit a parse tree produced by the {@code ifStmtRule}
+	 * labeled alternative in {@link CoolParser#ifStmt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIfStmt(CoolParser.IfStmtContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link CoolParser#matchedIfStmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMatchedIfStmt(CoolParser.MatchedIfStmtContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link CoolParser#openIfStmt}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOpenIfStmt(CoolParser.OpenIfStmtContext ctx);
+	T visitIfStmtRule(CoolParser.IfStmtRuleContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code caseStmtRule}
 	 * labeled alternative in {@link CoolParser#caseStmt}.
