@@ -9,17 +9,18 @@ import translation.Translator;
 
 public class NotExprTranslator extends Translator {
 
-    NotExprTranslator(ParseTree parseTree){
+    public NotExprTranslator(ParseTree parseTree){
         super(parseTree);
         if(!(parseTree instanceof CoolParser.NotExprContext))
             throw new RuntimeException();
     }
+
     @Override
     public Temp generate() {
         Temp childTmp = new ExprTranslator(parseTree.getChild(1)).generate();
-        Temp newTmp = new Temp();
-        TranslationHandler.write(newTmp.toString() + " := not " + childTmp.toString());
+        Temp myTemp = new Temp();
+        TranslationHandler.write(myTemp.toString() + " := not " + childTmp.toString());
         childTmp.release();
-        return newTmp;
+        return myTemp;
     }
 }
