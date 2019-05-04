@@ -7,9 +7,13 @@ program:
 // class definition
 classDefiniton:
     CLASS ID (INHERITS (type|ID) | ) OPENING_CURLY_BRACKET
-        variableDeclaration*
-        featureDefinition*
+        globals
     CLOSING_CURLY_BRACKET SEMICOLON # classDefinitionRule;
+
+globals:
+    variableDeclaration*
+    featureDefinition*
+    ;
 
 // method definition
 featureDefinition:
@@ -80,7 +84,7 @@ caseStmt:
     ;
 
 letStmt:
-    LET (ID COLON (type|ID) OP_ASSIGNMENT expr?)+ IN
+    LET ID COLON (type|ID) OP_ASSIGNMENT expr? (COMMA ID COLON (type|ID) OP_ASSIGNMENT expr?)*  IN
         expr
     ;
 
