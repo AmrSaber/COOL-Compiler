@@ -26,7 +26,6 @@ public class VariableDeclarationTranslator extends Translator {
 
         // get the full name of the variable, prefixed with scope
         Reference reference = ScopeHandler.getReference(idName);
-        idName = reference.toString();
 
         // check if the production has assignment
         if (parseTree.getChildCount() > 4) {
@@ -35,13 +34,21 @@ public class VariableDeclarationTranslator extends Translator {
 
             Temp exprTemp = exprTranslator.generate();
 
+            TranslationHandler.write(
+                    String.format(
+                            "_Alloc %s, %s\t; Allocate variable",
+                            type,
+                            reference.name
+                    )
+            );
+
             // assign expression's value into variable
             TranslationHandler.write(
                     String.format(
-                            "%s := %s/t; assign expression's value into %s",
-                            idName,
+                            "%s := %s\t; assign expression's value into %s",
+                            reference.toString(),
                             exprTemp,
-                            idName
+                            reference.toString()
                     )
             );
 
