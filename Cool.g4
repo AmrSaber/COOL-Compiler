@@ -9,7 +9,7 @@ classDefiniton:
     CLASS ID (INHERITS (type|ID) | ) OPENING_CURLY_BRACKET
         variableDeclaration*
         featureDefinition*
-    CLOSING_CURLY_BRACKET SEMICOLON;
+    CLOSING_CURLY_BRACKET SEMICOLON # classDefinitionRule;
 
 // method definition
 featureDefinition:
@@ -22,10 +22,10 @@ featureDefinition:
 // statements
 expr: term expr_;
 
-expr_: (OP_ADD|OP_SUB|RELOP_EQ|RELOP_LE|RELOP_LT) term expr_ | ;
+expr_: op=(OP_ADD|OP_SUB|RELOP_EQ|RELOP_LE|RELOP_LT) term expr_ | ;
 
 term: value term_;
-term_: (OP_MUL|OP_DIV) value term_|;
+term_: op=(OP_MUL|OP_DIV) value term_|;
 
 value: (assignmentStmt
    | featureCall
@@ -44,22 +44,24 @@ value: (assignmentStmt
    | NUM
    | LITERAL
    | TRUE
-   | FALSE) (memberAccess_ |)
+   | FALSE) (memberAccess |)
    ;
 
 assignmentStmt:
     ID OP_ASSIGNMENT expr
+    # assignmentStmtRule
     ;
 
 featureCall:
     ID OPENING_BRACKET (exprList|) CLOSING_BRACKET
+    # featureCallRule
     ;
 
-memberAccess_ : (AT (type|ID) | ) DOT (featureCall| ID) memberAccess_ | ;
-
-memberAcess:
-    ID (AT (type|ID) | ) DOT (featureCall| ID)
+memberAccess :
+    (AT (type|ID) | ) DOT (featureCall| ID) memberAccess
+    |
     ;
+
 
 ifStmt :
     IF expr THEN
@@ -67,12 +69,14 @@ ifStmt :
     (ELSE
         expr | )
     FI
+    # ifStmtRule
     ;
 
 caseStmt:
     CASE expr OF
         (ID COLON (type|ID) '=>' expr SEMICOLON)+
     ESAC
+    # caseStmtRule
     ;
 
 letStmt:
@@ -84,28 +88,34 @@ whileStmt:
     WHILE expr LOOP
         expr
     POOL
+    # whileStmtRule
     ;
 
 block:
     OPENING_CURLY_BRACKET
         (expr SEMICOLON)+
     CLOSING_CURLY_BRACKET
+    # blockRule
     ;
 
 newObject:
     NEW (type|ID)
+    # newObjectRule
     ;
 
 isvoidExpr:
     ISVOID expr
+    # isvoidExprRule
     ;
 
 invrseExpr:
     OP_INV expr
+    # invrseExprRule
     ;
 
 notExpr:
     OP_NOT expr
+    # notExprRule
     ;
 
 exprList: expr exprList_;
