@@ -24,7 +24,7 @@ public class TranslationHandler {
      * */
     public static void write(String s) {
         try{
-            output_stream.write(s);
+            output_stream.write(s + "\n");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
