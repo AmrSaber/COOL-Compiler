@@ -37,7 +37,6 @@ value: (assignmentStmt
    | isvoidExpr
    | notExpr
    | invrseExpr
-   | OPENING_BRACKET expr CLOSING_BRACKET
    | SELF
    | ID
    | OP_SUB NUM
@@ -95,7 +94,10 @@ block:
     OPENING_CURLY_BRACKET
         (expr SEMICOLON)+
     CLOSING_CURLY_BRACKET
-    # blockRule
+    |
+    OPENING_BRACKET
+        expr
+    CLOSING_BRACKET
     ;
 
 newObject:

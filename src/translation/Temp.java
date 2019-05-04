@@ -1,4 +1,4 @@
-package Translation;
+package translation;
 
 import java.util.LinkedList;
 
@@ -25,7 +25,7 @@ public class Temp {
      * if this is the case then use one of them, and remove it from list
      * otherwise allocate a new one and increment next.
      */
-    Temp(){
+    public Temp(){
         if(free.isEmpty()) {
             index = next;
             next += 1;

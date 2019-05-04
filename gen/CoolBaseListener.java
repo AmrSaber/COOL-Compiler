@@ -183,13 +183,13 @@ public class CoolBaseListener implements CoolListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBlockRule(CoolParser.BlockRuleContext ctx) { }
+	@Override public void enterBlock(CoolParser.BlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBlockRule(CoolParser.BlockRuleContext ctx) { }
+	@Override public void exitBlock(CoolParser.BlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

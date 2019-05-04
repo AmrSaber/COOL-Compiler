@@ -1,4 +1,4 @@
-package Translation;
+package translation;
 
 import org.antlr.v4.runtime.tree.ParseTree;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;

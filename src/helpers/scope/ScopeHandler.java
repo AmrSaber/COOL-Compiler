@@ -1,9 +1,7 @@
 package helpers.scope;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 @SuppressWarnings("unused")
 public class ScopeHandler {
@@ -13,14 +11,14 @@ public class ScopeHandler {
 
     }
 
-    private static List<Map<String, Reference>> scopes;
+    private static List<Scope> scopes;
 
     static {
         scopes = new LinkedList<>();
     }
 
     public static void pushScope() {
-        Map<String, Reference> newScope = new HashMap<>();
+        Scope newScope = new Scope();
         scopes.add(0, newScope);
     }
 
@@ -32,9 +30,12 @@ public class ScopeHandler {
         int currentScopeIndex = 0;
 
         while(currentScopeIndex < scopes.size()) {
-            Map<String, Reference> currentScope = scopes.get(currentScopeIndex);
-            if (currentScope.containsKey(name))
-                return currentScope.get(name);
+            Scope currentScope = scopes.get(currentScopeIndex);
+            if (currentScope.map.containsKey(name)) {
+                Reference reference = currentScope.map.get(name);
+                reference.scopeName = currentScope.toString();
+                return reference;
+            }
             ++currentScopeIndex;
         }
 
@@ -42,8 +43,8 @@ public class ScopeHandler {
     }
 
     public static void addReference(Reference reference) {
-        Map<String, Reference> topScope = scopes.get(0);
-        topScope.put(reference.name, reference);
+        Scope topScope = scopes.get(0);
+        topScope.map.put(reference.name, reference);
     }
 
     public static void clear() {

@@ -100,12 +100,11 @@ public interface CoolVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitWhileStmtRule(CoolParser.WhileStmtRuleContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code blockRule}
-	 * labeled alternative in {@link CoolParser#block}.
+	 * Visit a parse tree produced by {@link CoolParser#block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBlockRule(CoolParser.BlockRuleContext ctx);
+	T visitBlock(CoolParser.BlockContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code newObjectRule}
 	 * labeled alternative in {@link CoolParser#newObject}.

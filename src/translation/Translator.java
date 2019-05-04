@@ -1,4 +1,4 @@
-package Translation;
+package translation;
 
 /**
  * this is an abstract class that translators for grammar rules should extend

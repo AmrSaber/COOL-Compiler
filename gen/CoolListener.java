@@ -159,17 +159,15 @@ public interface CoolListener extends ParseTreeListener {
 	 */
 	void exitWhileStmtRule(CoolParser.WhileStmtRuleContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code blockRule}
-	 * labeled alternative in {@link CoolParser#block}.
+	 * Enter a parse tree produced by {@link CoolParser#block}.
 	 * @param ctx the parse tree
 	 */
-	void enterBlockRule(CoolParser.BlockRuleContext ctx);
+	void enterBlock(CoolParser.BlockContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code blockRule}
-	 * labeled alternative in {@link CoolParser#block}.
+	 * Exit a parse tree produced by {@link CoolParser#block}.
 	 * @param ctx the parse tree
 	 */
-	void exitBlockRule(CoolParser.BlockRuleContext ctx);
+	void exitBlock(CoolParser.BlockContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code newObjectRule}
 	 * labeled alternative in {@link CoolParser#newObject}.

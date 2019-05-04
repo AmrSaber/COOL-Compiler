@@ -11,6 +11,8 @@ public class Reference {
     public List<Reference> params;
     public String returnType;
 
+    public String scopeName;
+
     public Reference(String name, String type) {
         this.name = name;
         this.type = type;
@@ -27,5 +29,10 @@ public class Reference {
         this.isFunction = true;
 
         this.type = null;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s_%s", this.scopeName, this.name);
     }
 }
