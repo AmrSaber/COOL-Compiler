@@ -1448,10 +1448,6 @@ public class CoolParser extends Parser {
 		public TerminalNode COLON(int i) {
 			return getToken(CoolParser.COLON, i);
 		}
-		public List<TerminalNode> OP_ASSIGNMENT() { return getTokens(CoolParser.OP_ASSIGNMENT); }
-		public TerminalNode OP_ASSIGNMENT(int i) {
-			return getToken(CoolParser.OP_ASSIGNMENT, i);
-		}
 		public TerminalNode IN() { return getToken(CoolParser.IN, 0); }
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
@@ -1464,6 +1460,10 @@ public class CoolParser extends Parser {
 		}
 		public TypeContext type(int i) {
 			return getRuleContext(TypeContext.class,i);
+		}
+		public List<TerminalNode> OP_ASSIGNMENT() { return getTokens(CoolParser.OP_ASSIGNMENT); }
+		public TerminalNode OP_ASSIGNMENT(int i) {
+			return getToken(CoolParser.OP_ASSIGNMENT, i);
 		}
 		public List<TerminalNode> COMMA() { return getTokens(CoolParser.COMMA); }
 		public TerminalNode COMMA(int i) {
@@ -1524,13 +1524,13 @@ public class CoolParser extends Parser {
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(225);
-			match(OP_ASSIGNMENT);
 			setState(227);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NEW) | (1L << SELF) | (1L << TRUE) | (1L << FALSE) | (1L << ISVOID) | (1L << IF) | (1L << CASE) | (1L << WHILE) | (1L << LET) | (1L << OP_SUB) | (1L << OP_NOT) | (1L << OP_INV) | (1L << OPENING_CURLY_BRACKET) | (1L << OPENING_BRACKET) | (1L << NUM) | (1L << LITERAL) | (1L << ID))) != 0)) {
+			if (_la==OP_ASSIGNMENT) {
 				{
+				setState(225);
+				match(OP_ASSIGNMENT);
 				setState(226);
 				expr(0);
 				}
@@ -1571,13 +1571,13 @@ public class CoolParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(236);
-				match(OP_ASSIGNMENT);
 				setState(238);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NEW) | (1L << SELF) | (1L << TRUE) | (1L << FALSE) | (1L << ISVOID) | (1L << IF) | (1L << CASE) | (1L << WHILE) | (1L << LET) | (1L << OP_SUB) | (1L << OP_NOT) | (1L << OP_INV) | (1L << OPENING_CURLY_BRACKET) | (1L << OPENING_BRACKET) | (1L << NUM) | (1L << LITERAL) | (1L << ID))) != 0)) {
+				if (_la==OP_ASSIGNMENT) {
 					{
+					setState(236);
+					match(OP_ASSIGNMENT);
 					setState(237);
 					expr(0);
 					}
@@ -2533,11 +2533,11 @@ public class CoolParser extends Parser {
 		"\2\2\u00d9\u00da\3\2\2\2\u00da\u00db\7\27\2\2\u00db\31\3\2\2\2\u00dc\u00dd"+
 		"\7\33\2\2\u00dd\u00de\7\65\2\2\u00de\u00e1\7/\2\2\u00df\u00e2\5\60\31"+
 		"\2\u00e0\u00e2\7\65\2\2\u00e1\u00df\3\2\2\2\u00e1\u00e0\3\2\2\2\u00e2"+
-		"\u00e3\3\2\2\2\u00e3\u00e5\7\35\2\2\u00e4\u00e6\5\n\6\2\u00e5\u00e4\3"+
+		"\u00e5\3\2\2\2\u00e3\u00e4\7\35\2\2\u00e4\u00e6\5\n\6\2\u00e5\u00e3\3"+
 		"\2\2\2\u00e5\u00e6\3\2\2\2\u00e6\u00f4\3\2\2\2\u00e7\u00e8\7.\2\2\u00e8"+
 		"\u00e9\7\65\2\2\u00e9\u00ec\7/\2\2\u00ea\u00ed\5\60\31\2\u00eb\u00ed\7"+
-		"\65\2\2\u00ec\u00ea\3\2\2\2\u00ec\u00eb\3\2\2\2\u00ed\u00ee\3\2\2\2\u00ee"+
-		"\u00f0\7\35\2\2\u00ef\u00f1\5\n\6\2\u00f0\u00ef\3\2\2\2\u00f0\u00f1\3"+
+		"\65\2\2\u00ec\u00ea\3\2\2\2\u00ec\u00eb\3\2\2\2\u00ed\u00f0\3\2\2\2\u00ee"+
+		"\u00ef\7\35\2\2\u00ef\u00f1\5\n\6\2\u00f0\u00ee\3\2\2\2\u00f0\u00f1\3"+
 		"\2\2\2\u00f1\u00f3\3\2\2\2\u00f2\u00e7\3\2\2\2\u00f3\u00f6\3\2\2\2\u00f4"+
 		"\u00f2\3\2\2\2\u00f4\u00f5\3\2\2\2\u00f5\u00f7\3\2\2\2\u00f6\u00f4\3\2"+
 		"\2\2\u00f7\u00f8\7\34\2\2\u00f8\u00f9\5\n\6\2\u00f9\33\3\2\2\2\u00fa\u00fb"+
