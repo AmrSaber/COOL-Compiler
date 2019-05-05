@@ -33,23 +33,19 @@ public class ValueTranslator extends Translator {
     public Temp generate() {
         ParseTree child = parseTree.getChild(0);
         if (child instanceof CoolParser.AssignmentStmtContext) {
-            // TODO
-            return new Temp();
+            return new AssignmentStmtTranslator(child).generate();
         } else if (child instanceof CoolParser.FeatureCallContext) {
-            // TODO
-            return new Temp();
+            return new FeatureCallTranslator(child).generate();
         } else if (child instanceof CoolParser.IfStmtContext) {
             return new IfStmtTranslator(child).generate();
         } else if (child instanceof CoolParser.CaseStmtContext) {
-            // TODO
-            return new Temp();
+            return new CaseStmtTranslator(child).generate();
         } else if (child instanceof CoolParser.LetStmtContext) {
             return new LetStmtTranslator(child).generate();
         } else if (child instanceof CoolParser.WhileStmtContext) {
             return new WhileStmtTranslator(child).generate();
         } else if (child instanceof CoolParser.BlockContext) {
-            // TODO
-            return new Temp();
+            return new BlockTranslator(child).generate();
         } else if (child instanceof CoolParser.NewObjectContext) {
             throw new NotImplementedException();
         } else if (child instanceof CoolParser.IsvoidExprContext) {

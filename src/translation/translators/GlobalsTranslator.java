@@ -17,9 +17,11 @@ public class GlobalsTranslator extends Translator {
         for (int i = 0; i < parseTree.getChildCount(); ++i) {
             ParseTree child = parseTree.getChild(i);
             if (child instanceof CoolParser.VariableDeclarationContext) {
-                new VariableDeclarationTranslator(child).generate();
+                Temp temp = new VariableDeclarationTranslator(child).generate();
+                if (temp != null) temp.release();
             } else if (child instanceof CoolParser.FeatureDefinitionContext) {
-                // TODO
+                Temp temp = new FeatureDefinitionTranslator(child).generate();
+                if (temp != null) temp.release();
             }
         }
         return null;
