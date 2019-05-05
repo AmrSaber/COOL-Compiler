@@ -2,20 +2,16 @@ import translation.TranslationHandler;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
         String srcFile = "cool_source/expr.cl";
-        if(args.length >= 1)    srcFile = args[0];
+        if (args.length >= 1) srcFile = args[0];
 
         Lexer lexer = new Lexer(srcFile);
-        if(lexer.hasErrors())   lexer.reportErrors();
-        else    lexer.getTokens(srcFile + "-lex");
-        lexer.getTokens(srcFile + "-lex");
+        lexer.writeTokens(srcFile + "-lex");
 
-        ParserWrapper parserWrapper = new ParserWrapper(srcFile);
-//        parserWrapper.printAST();
-//        parserWrapper.dfs();
+        Parser parser = new Parser(lexer);
+        parser.writeAST(srcFile + "-cst");
 
-
-        TranslationHandler.translate(parserWrapper.parse());
+        TranslationHandler.translate(parser.parse());
     }
 }

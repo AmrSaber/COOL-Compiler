@@ -7,20 +7,23 @@ import translation.TranslationHandler;
 import translation.Translator;
 
 public class BlockTranslator extends Translator {
-    public BlockTranslator(ParseTree parseTree){
+    public BlockTranslator(ParseTree parseTree) {
         super(parseTree);
-        if(!(parseTree instanceof CoolParser.BlockContext))
+        if (!(parseTree instanceof CoolParser.BlockContext))
             throw new RuntimeException();
 
     }
+
     @Override
     public Temp generate() {
-        int i = 1;
-        for( ; i+3 < parseTree.getChildCount() ; i+=3){
-            Temp childITemp = new ExprTranslator(parseTree.getChild(i)).generate();
-            childITemp.release();
+        Temp res = null;
+        for (int i = 0; i < parseTree.getChildCount(); ++i) {
+            ParseTree child = parseTree.getChild(i);
+            if (child instanceof CoolParser.ExprContext) {
+                if (res != null) res.release();
+                res = new ExprTranslator(child).generate();
+            }
         }
-        Temp lastChild = new ExprTranslator(parseTree.getChild(i)).generate();
-        return lastChild;
+        return res;
     }
 }

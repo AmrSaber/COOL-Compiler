@@ -11,13 +11,16 @@ classDefiniton:
     CLOSING_CURLY_BRACKET SEMICOLON # classDefinitionRule;
 
 globals:
-    (variableDeclaration SEMICOLON)*
-    featureDefinition*
+    (
+          (variableDeclaration SEMICOLON)
+        | featureDefinition
+        | expr
+    )*
     ;
 
 // method definition
 featureDefinition:
-    ID OPENING_BRACKET (formalsList|) CLOSING_BRACKET COLON (ID|type) OPENING_CURLY_BRACKET
+    ID OPENING_BRACKET formalsList? CLOSING_BRACKET COLON (ID|type) OPENING_CURLY_BRACKET
         expr
     CLOSING_CURLY_BRACKET SEMICOLON
     ;
@@ -38,12 +41,12 @@ value: (assignmentStmt
    | notExpr
    | invrseExpr
    | SELF
-   | ID
    | OP_SUB NUM
-   | NUM
    | LITERAL
    | TRUE
-   | FALSE) (memberAccess |)
+   | FALSE
+   | NUM
+   | ID) //memberAccess?
    ;
 
 assignmentStmt:

@@ -1,7 +1,11 @@
 package translation.translators;
 
+import gen.CoolLexer;
 import gen.CoolParser;
+import helpers.scope.Reference;
+import helpers.scope.ScopeHandler;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import translation.Temp;
 import translation.TranslationHandler;
@@ -56,11 +60,23 @@ public class ValueTranslator extends Translator {
             return new InvrseExprTranslator(child).generate();
         } else if (child.getChildCount() == 0) {
             Temp res = new Temp();
+            String rhs;
+
+            int tokenType = ((TerminalNodeImpl) child).symbol.getType() - 1;
+            String tokenName = CoolLexer.ruleNames[tokenType];
+
+            if (tokenName.equals("ID")) {
+                Reference reference = ScopeHandler.getReference(child.getText());
+                rhs = reference.toString();
+            } else {
+                rhs = child.getText();
+            }
+
             TranslationHandler.write(
                     String.format(
                             "%s := %s\t; assign terminal value into temp",
                             res,
-                            child.getText()
+                            rhs
                     )
             );
             return res;

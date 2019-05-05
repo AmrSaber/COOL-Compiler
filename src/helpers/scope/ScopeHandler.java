@@ -48,6 +48,10 @@ public class ScopeHandler {
         reference.scopeName = topScope.toString();
     }
 
+    public static String getCurrentScopeName() {
+        return scopes.get(0).toString();
+    }
+
     public static void clear() {
         scopes.clear();
     }

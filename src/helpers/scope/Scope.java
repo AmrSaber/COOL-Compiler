@@ -18,6 +18,6 @@ public class Scope {
 
     @Override
     public String toString() {
-        return String.format("_s%d", this.id);
+        return String.format("S%d", this.id);
     }
 }
