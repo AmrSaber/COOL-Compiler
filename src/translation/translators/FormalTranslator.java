@@ -25,8 +25,7 @@ public class FormalTranslator extends Translator{
             Reference variableRef = new Reference(variableName, variableType);
             ScopeHandler.addReference(variableRef);
             variableRef = ScopeHandler.getReference(variableName);
-            TranslationHandler.write(String.format("_Alloc %s, %s\n",variableType, variableRef.name));
-            TranslationHandler.write(String.format("POPparam %s\n",variableRef));
+            TranslationHandler.write(String.format("%s:%s ",variableRef, variableType));
         }else{
             throw new RuntimeException(String.format("expected CoolParser.FormalContext found %s", parseTree.getClass().toString()));
         }

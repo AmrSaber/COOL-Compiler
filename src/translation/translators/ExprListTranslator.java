@@ -13,6 +13,17 @@ public class ExprListTranslator extends Translator {
         super(parseTree);
     }
 
+    /**
+     * this function generates the TAC of expression list given to a function when being called
+     * if the function has only 1 expression
+     *      generate it
+     *      push it to stack
+     * else:
+     *      recurse to solve the Expression list given
+     *
+     *      then for the last one generate it
+     *      push it to stack
+     * */
     @Override
     public Temp generate() {
         if(parseTree instanceof CoolParser.ExprListContext){

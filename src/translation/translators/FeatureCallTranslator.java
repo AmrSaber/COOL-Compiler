@@ -8,8 +8,6 @@ import translation.Temp;
 import translation.TranslationHandler;
 import translation.Translator;
 
-import java.util.stream.Stream;
-
 // ID OPENING_BRACKET (exprList|) CLOSING_BRACKET
 public class FeatureCallTranslator extends Translator{
     public FeatureCallTranslator(ParseTree parseTree) {
@@ -20,15 +18,16 @@ public class FeatureCallTranslator extends Translator{
      * this function is supposed to handle the calling of a function
      * 1 - it should first push function parameters to stack or pass them to the function by any means
      * 2 - call the function
+     *
+     * expected output:
+     *
+     * pushLabel L3165
+     * _sc_t54 = call func
+     * L3165:
      * */
     @Override
     public Temp generate() {
         if(parseTree instanceof CoolParser.FeatureCallContext){
-            // create a new label
-            String after = TranslationHandler.getNewLabel();
-            // push this label to stack
-            TranslationHandler.write(String.format("pushLabel %s\n",after));
-
             String featureName = ((CoolParser.FeatureCallContext) parseTree).children.get(0).getText();
             int paramsLength = ((CoolParser.FeatureCallContext) parseTree).children.size() - 3;
             if(paramsLength > 0){
@@ -39,8 +38,6 @@ public class FeatureCallTranslator extends Translator{
             Temp ret = new Temp();
             TranslationHandler.write(String.format("%s = call %s\n",ret, featureRef));
 
-            // place this label after the function
-            TranslationHandler.write(String.format(":%s%s\n",after));
             return ret;
         }else{
             throw new RuntimeException(String.format("expected CoolParser.FeatureCallContext found %s", parseTree.getClass().toString()));
