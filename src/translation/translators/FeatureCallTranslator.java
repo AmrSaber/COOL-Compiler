@@ -32,7 +32,7 @@ public class FeatureCallTranslator extends Translator{
             int paramsLength = ((CoolParser.FeatureCallContext) parseTree).children.size() - 3;
             if(paramsLength > 0){
                 ParseTree exprList = ((CoolParser.FeatureCallContext) parseTree).children.get(2);
-                (new ExprListTranslator(exprList)).generate().release();
+                (new ExprListTranslator(exprList)).generate();
             }
             Reference featureRef = ScopeHandler.getReference(featureName);
             Temp ret = new Temp();
