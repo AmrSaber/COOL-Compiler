@@ -45,6 +45,7 @@ public class ScopeHandler {
     public static void addReference(Reference reference) {
         Scope topScope = scopes.get(0);
         topScope.map.put(reference.name, reference);
+        reference.scopeName = topScope.toString();
     }
 
     public static void clear() {

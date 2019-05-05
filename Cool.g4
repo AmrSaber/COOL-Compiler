@@ -11,7 +11,7 @@ classDefiniton:
     CLOSING_CURLY_BRACKET SEMICOLON # classDefinitionRule;
 
 globals:
-    variableDeclaration*
+    (variableDeclaration SEMICOLON)*
     featureDefinition*
     ;
 
@@ -79,8 +79,7 @@ caseStmt:
     ;
 
 letStmt:
-    LET ID COLON (type|ID) OP_ASSIGNMENT expr? (COMMA ID COLON (type|ID) OP_ASSIGNMENT expr?)*  IN
-        expr
+    LET variableDeclaration (COMMA variableDeclaration)* IN expr
     ;
 
 whileStmt:
@@ -126,7 +125,7 @@ exprList: exprList COMMA expr | expr;
 formal: ID COLON (type|ID);
 formalsList: formalsList COMMA formal | formal;
 
-variableDeclaration:ID COLON (type|ID) ( OP_ASSIGNMENT expr |) SEMICOLON;
+variableDeclaration:ID COLON (type|ID) (OP_ASSIGNMENT expr)?;
 
 
 
