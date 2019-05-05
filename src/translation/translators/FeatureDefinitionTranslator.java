@@ -35,6 +35,8 @@ public class FeatureDefinitionTranslator extends Translator {
 
             // generate feature body
             Temp ret = this.generateFeatureBody(parseTree);
+            if(ret == null)
+                throw new RuntimeException("FeatureDefinitionTranslator: ret can't be null");
             TranslationHandler.write(String.format("return %s\n", ret));
 
             // exit function scope
