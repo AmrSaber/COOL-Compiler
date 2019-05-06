@@ -42,6 +42,14 @@ public class TranslationHandler {
         }
     }
 
+    public static void writeUnindented(String text) {
+        try{
+            output_stream.write(String.format("%s\n", text));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     /**
      * sets the stream to write the  address code to it.
      * */

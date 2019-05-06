@@ -22,18 +22,18 @@ public class ScopeHandler {
     public static void pushScope() {
         Scope newScope = new Scope();
         scopes.add(0, newScope);
-        TranslationHandler.write(
+        TranslationHandler.writeUnindented(
                 String.format(
-                        "\r; ======[Enter scope %s]======",
+                        "; ======[Enter scope %s]======",
                         ScopeHandler.getCurrentScopeName()
                 )
         );
     }
 
     public static void popScope() {
-        TranslationHandler.write(
+        TranslationHandler.writeUnindented(
                 String.format(
-                        "\r; ======[Exit scope %s]======\n",
+                        "; ======[Exit scope %s]======\n",
                         ScopeHandler.getCurrentScopeName()
                 )
         );

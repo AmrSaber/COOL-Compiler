@@ -41,7 +41,7 @@ public class FeatureDefinitionTranslator extends Translator {
             );
         }
 
-        TranslationHandler.write(String.format("return %s\n", ret));
+        TranslationHandler.write(String.format("return %s", ret));
 
         // exit function scope
         ScopeHandler.popScope();

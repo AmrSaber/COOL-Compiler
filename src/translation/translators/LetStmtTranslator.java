@@ -36,8 +36,8 @@ public class LetStmtTranslator extends Translator {
                 if (exprTemp != null) exprTemp.release();
                 exprTemp = new ExprTranslator(child).generate();
 
-                TranslationHandler.write("; --{End Let Body}--");
                 TranslationHandler.removeIndentation();
+                TranslationHandler.write("; --{End Let Body}--");
             }
         }
 

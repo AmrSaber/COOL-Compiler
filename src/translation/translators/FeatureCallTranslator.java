@@ -38,7 +38,7 @@ public class FeatureCallTranslator extends Translator{
         Reference featureRef = ScopeHandler.getReference(featureName);
 
         Temp ret = new Temp();
-        TranslationHandler.write(String.format("%s = call %s\n",ret, featureRef));
+        TranslationHandler.write(String.format("%s = call %s",ret, featureRef));
 
         return ret;
     }
