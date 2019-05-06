@@ -21,6 +21,7 @@ public class AssignmentStmtTranslator extends Translator {
 
         Temp exprTemp = new ExprTranslator(parseTree.getChild(2)).generate();
         TranslationHandler.write(reference + " := " + exprTemp);
+        TranslationHandler.write("");
         exprTemp.release();
 
         return null;

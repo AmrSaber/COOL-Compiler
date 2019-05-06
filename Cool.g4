@@ -38,11 +38,11 @@ value: (
    | notExpr
    | invrseExpr
    | SELF
-   | OP_SUB NUM
    | LITERAL
    | TRUE
    | FALSE
    | NUM
+   | OP_SUB NUM
    | ID
    ) //memberAccess?
    ;

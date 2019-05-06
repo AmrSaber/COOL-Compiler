@@ -39,6 +39,7 @@ public class FeatureCallTranslator extends Translator{
 
         Temp ret = new Temp();
         TranslationHandler.write(String.format("%s = call %s",ret, featureRef));
+        TranslationHandler.write("");
 
         return ret;
     }

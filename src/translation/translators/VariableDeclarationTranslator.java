@@ -51,6 +51,8 @@ public class VariableDeclarationTranslator extends Translator {
             exprTemp.release();
         }
 
+        TranslationHandler.write("");
+
         return null;
     }
 }

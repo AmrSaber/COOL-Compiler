@@ -7,7 +7,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String srcFile = "cool_source/expr.cl";
+        String srcFile = "cool_source/factorial.cl";
         if (args.length >= 1) srcFile = args[0];
 
         Lexer lexer = new Lexer(srcFile);
