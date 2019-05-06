@@ -27,7 +27,7 @@ esac;
 
 someVar <- 2 + 3 * (4 + 5) + 6;
 
--- someNotDeclaredVar <- 12
+-- someNotDeclaredVar <- 12;
 
 someVar <- while someOtherVar < 10 loop {
     someOtherVar <- someOtherVar + 1;

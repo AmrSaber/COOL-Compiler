@@ -2,7 +2,6 @@ package translation.translators;
 
 
 import gen.CoolParser;
-import helpers.Assertions;
 import helpers.scope.Reference;
 import helpers.scope.ScopeHandler;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -11,7 +10,7 @@ import translation.TranslationHandler;
 import translation.Translator;
 
 
-// ID ( formalsList? ) : (ID|type) { expr } ;
+// ID ( formalsList? ) : (ID|type) { expr? } ;
 public class FeatureDefinitionTranslator extends Translator {
     public FeatureDefinitionTranslator(ParseTree parseTree) {
         super(parseTree, CoolParser.FeatureDefinitionContext.class);
@@ -59,19 +58,14 @@ public class FeatureDefinitionTranslator extends Translator {
      * */
     private Temp generateFeatureBody(ParseTree fun){
         Temp bodyRes = null;
-        boolean found = false;
 
         for (int i = fun.getChildCount()-1 ; i >= 0 ; --i) {
             ParseTree child = fun.getChild(i);
             if (child instanceof CoolParser.ExprContext) {
-                found = true;
                 bodyRes = new ExprTranslator(child).generate();
                 break;
             }
         }
-
-        if (!found)
-            throw new RuntimeException("Couldn't find feature body");
 
         return bodyRes;
     }

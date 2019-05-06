@@ -1,15 +1,13 @@
 out_string(s: String): VOID {
   -- nothing
-  0
 };
 
 out_int(i: Int): VOID {
   -- nothing
-  0
 };
 
 abort(): VOID {
-  "HALT_PROGRAM"
+  -- nothing
 };
 
 out : Int <- {

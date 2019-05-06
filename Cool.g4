@@ -16,7 +16,7 @@ globals:
 // method definition
 featureDefinition:
     ID OPENING_BRACKET formalsList? CLOSING_BRACKET COLON (ID|type) OPENING_CURLY_BRACKET
-        expr
+        expr?
     CLOSING_CURLY_BRACKET
     ;
 
@@ -92,7 +92,7 @@ whileStmt:
 
 block:
     OPENING_CURLY_BRACKET
-        (expr SEMICOLON)+
+        (expr SEMICOLON)*
     CLOSING_CURLY_BRACKET
     ;
 

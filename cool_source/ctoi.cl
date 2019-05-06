@@ -2,17 +2,14 @@
 
 abort(): VOID {
     -- stop the program
-    0
 };
 
 out_string(s: String): VOID {
     -- nothing
-    0
 };
 
 out_int(i: Int): VOID {
     -- nothing
-    "HALT_PROGRAM"
 };
 
 -- the main program ...
