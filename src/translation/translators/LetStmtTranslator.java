@@ -10,9 +10,7 @@ import translation.Translator;
 // LET variableDeclaration (COMMA variableDeclaration)* IN expr
 public class LetStmtTranslator extends Translator {
     public LetStmtTranslator(ParseTree parseTree) {
-        super(parseTree);
-        if (!(parseTree instanceof CoolParser.LetStmtContext))
-            throw new RuntimeException("Node is not LetStmt node");
+        super(parseTree, CoolParser.LetStmtContext.class);
     }
 
     @Override

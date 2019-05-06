@@ -8,11 +8,10 @@ import translation.Temp;
 import translation.TranslationHandler;
 import translation.Translator;
 
+// ID OP_ASSIGNMENT expr
 public class AssignmentStmtTranslator extends Translator {
     public AssignmentStmtTranslator(ParseTree parseTree) {
-        super(parseTree);
-        if(!(parseTree instanceof CoolParser.AssignmentStmtContext))
-            throw new RuntimeException();
+        super(parseTree, CoolParser.AssignmentStmtContext.class);
     }
 
     @Override
@@ -20,9 +19,10 @@ public class AssignmentStmtTranslator extends Translator {
         String id = parseTree.getChild(0).getText();
         Reference reference = ScopeHandler.getReference(id);
 
-        Temp childTemp = new ExprTranslator(parseTree.getChild(2)).generate();
-        TranslationHandler.write(reference + " := " + childTemp);
-        childTemp.release();
+        Temp exprTemp = new ExprTranslator(parseTree.getChild(2)).generate();
+        TranslationHandler.write(reference + " := " + exprTemp);
+        exprTemp.release();
+
         return null;
     }
 }

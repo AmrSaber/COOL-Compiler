@@ -1,6 +1,7 @@
 package translation.translators;
 
 import gen.CoolParser;
+import helpers.Assertions;
 import org.antlr.v4.runtime.tree.ParseTree;
 import translation.Temp;
 import translation.TranslationHandler;
@@ -10,9 +11,7 @@ import translation.Translator;
 public class ExprTranslator extends Translator {
 
     public ExprTranslator(ParseTree parseTree) {
-        super(parseTree);
-        if (!(parseTree instanceof CoolParser.ExprContext))
-            throw new RuntimeException("Node is not Expr");
+        super(parseTree, CoolParser.ExprContext.class);
     }
 
     @Override

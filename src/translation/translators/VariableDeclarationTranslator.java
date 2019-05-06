@@ -11,10 +11,7 @@ import translation.Translator;
 public class VariableDeclarationTranslator extends Translator {
 
     public VariableDeclarationTranslator(ParseTree parseTree) {
-        super(parseTree);
-        if (!(parseTree instanceof CoolParser.VariableDeclarationContext)) {
-            throw new RuntimeException("given node is not variable declaration node");
-        }
+        super(parseTree, CoolParser.VariableDeclarationContext.class);
     }
 
     @Override
@@ -22,37 +19,35 @@ public class VariableDeclarationTranslator extends Translator {
         String idName = parseTree.getChild(0).getText();
         String type = parseTree.getChild(2).getText();
 
-        ScopeHandler.addReference(new Reference(idName, type));
+        Reference reference = new Reference(idName, type);
+        ScopeHandler.addReference(reference);
 
-        // get the full name of the variable, prefixed with scope
-        Reference reference = ScopeHandler.getReference(idName);
+        Temp exprTemp = null;
 
-        // check if the production has assignment
+        // check if the production has assignment, generate its expression
         if (parseTree.getChildCount() > 4) {
             ParseTree exprNode = parseTree.getChild(4);
-            Translator exprTranslator = new ExprTranslator(exprNode);
+            exprTemp = new ExprTranslator(exprNode).generate();
+        }
 
-            Temp exprTemp = exprTranslator.generate();
+        TranslationHandler.write(
+                String.format(
+                        "_Alloc %s, %s",
+                        type,
+                        reference.name
+                )
+        );
 
-            TranslationHandler.write(
-                    String.format(
-                            "_Alloc %s, %s\t; Allocate variable",
-                            type,
-                            reference.name
-                    )
-            );
-
+        if (exprTemp != null) {
             // assign expression's value into variable
             TranslationHandler.write(
                     String.format(
-                            "%s := %s\t; assign expression's value into %s",
-                            reference.toString(),
-                            exprTemp,
-                            reference.toString()
+                            "%s := %s",
+                            reference,
+                            exprTemp
                     )
             );
 
-            // release unneeded memory
             exprTemp.release();
         }
 

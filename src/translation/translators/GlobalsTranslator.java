@@ -1,6 +1,7 @@
 package translation.translators;
 
 import gen.CoolParser;
+import helpers.Assertions;
 import helpers.scope.ScopeHandler;
 import org.antlr.v4.runtime.tree.ParseTree;
 import translation.Temp;
@@ -8,9 +9,7 @@ import translation.Translator;
 
 public class GlobalsTranslator extends Translator {
     public GlobalsTranslator(ParseTree parseTree) {
-        super(parseTree);
-        if (!(parseTree instanceof CoolParser.GlobalsContext))
-            throw new RuntimeException("Node not Globals!");
+        super(parseTree, CoolParser.GlobalsContext.class);
     }
 
     @Override

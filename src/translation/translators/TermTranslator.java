@@ -9,9 +9,7 @@ import translation.Translator;
 // term op=(OP_MUL|OP_DIV) value | value;
 public class TermTranslator extends Translator {
     public TermTranslator(ParseTree parseTree) {
-        super(parseTree);
-        if (!(parseTree instanceof CoolParser.TermContext))
-            throw new RuntimeException("Node is not Term!");
+        super(parseTree, CoolParser.TermContext.class);
     }
 
     @Override

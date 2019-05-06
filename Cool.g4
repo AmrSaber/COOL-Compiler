@@ -29,7 +29,8 @@ featureDefinition:
 expr: expr op=(OP_ADD|OP_SUB|RELOP_EQ|RELOP_LE|RELOP_LT) term | term;
 term: term op=(OP_MUL|OP_DIV) value | value;
 
-value: (assignmentStmt
+value: (
+     assignmentStmt
    | featureCall
    | ifStmt
    | caseStmt
@@ -46,7 +47,9 @@ value: (assignmentStmt
    | TRUE
    | FALSE
    | NUM
-   | ID) //memberAccess?
+   | ID
+   | OPENING_BRACKET expr CLOSING_BRACKET
+   ) //memberAccess?
    ;
 
 assignmentStmt:
@@ -96,10 +99,6 @@ block:
     OPENING_CURLY_BRACKET
         (expr SEMICOLON)+
     CLOSING_CURLY_BRACKET
-    |
-    OPENING_BRACKET
-        expr
-    CLOSING_BRACKET
     ;
 
 newObject:

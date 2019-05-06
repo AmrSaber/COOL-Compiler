@@ -10,9 +10,7 @@ import translation.Translator;
 public class NotExprTranslator extends Translator {
 
     public NotExprTranslator(ParseTree parseTree){
-        super(parseTree);
-        if(!(parseTree instanceof CoolParser.NotExprContext))
-            throw new RuntimeException();
+        super(parseTree, CoolParser.NotExprContext.class);
     }
 
     @Override

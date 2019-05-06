@@ -1,5 +1,6 @@
 package translation;
 
+import helpers.Assertions;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 /**
@@ -9,8 +10,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 abstract public class Translator {
 
     protected ParseTree parseTree;
-    public Translator(ParseTree parseTree) {
+    public Translator(ParseTree parseTree, Class targetClass) {
         this.parseTree = parseTree;
+        Assertions.assertType(parseTree, targetClass);
     }
 
     /**

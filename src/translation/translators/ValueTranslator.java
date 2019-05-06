@@ -24,18 +24,26 @@ import translation.Translator;
  *    | notExpr
  *    | invrseExpr
  *    | TERMINAL
+ *    | ( expr )
  */
 
 public class ValueTranslator extends Translator {
     public ValueTranslator(ParseTree parseTree) {
-        super(parseTree);
-        if (!(parseTree instanceof CoolParser.ValueContext))
-            throw new RuntimeException("Node is not Value!");
+        super(parseTree, CoolParser.ValueContext.class);
     }
 
     @Override
     public Temp generate() {
-        ParseTree child = parseTree.getChild(0);
+        ParseTree child;
+        if (parseTree.getChildCount() == 1) child = parseTree.getChild(0);
+        else if (parseTree.getChildCount() == 3) child = parseTree.getChild(1);
+        else throw new RuntimeException(
+                    String.format(
+                            "Unknown form of value with %s children",
+                            parseTree.getChildCount()
+                    )
+            );
+
         if (child instanceof CoolParser.AssignmentStmtContext) {
             return new AssignmentStmtTranslator(child).generate();
         } else if (child instanceof CoolParser.FeatureCallContext) {
@@ -57,7 +65,9 @@ public class ValueTranslator extends Translator {
         } else if (child instanceof CoolParser.NotExprContext) {
             return new NotExprTranslator(child).generate();
         } else if (child instanceof CoolParser.InvrseExprContext) {
-            return new InvrseExprTranslator(child).generate();
+            return new InverseExprTranslator(child).generate();
+        } else if (child instanceof CoolParser.ExprContext) {
+            return new ExprTranslator(child).generate();
         } else if (child.getChildCount() == 0) {
             Temp res = new Temp();
             String rhs;
@@ -74,14 +84,14 @@ public class ValueTranslator extends Translator {
 
             TranslationHandler.write(
                     String.format(
-                            "%s := %s\t; assign terminal value into temp",
+                            "%s := %s",
                             res,
                             rhs
                     )
             );
             return res;
         } else {
-            throw new RuntimeException("Unknown child node!");
+            throw new RuntimeException("Unknown child node with " + child.getClass());
         }
     }
 }

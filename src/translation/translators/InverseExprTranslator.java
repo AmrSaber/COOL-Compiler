@@ -6,19 +6,17 @@ import translation.Temp;
 import translation.TranslationHandler;
 import translation.Translator;
 
-public class InvrseExprTranslator extends Translator {
+public class InverseExprTranslator extends Translator {
 
-    public InvrseExprTranslator(ParseTree parseTree){
-        super(parseTree);
-        if(!(parseTree instanceof CoolParser.InvrseExprContext))
-            throw new RuntimeException();
+    public InverseExprTranslator(ParseTree parseTree){
+        super(parseTree, CoolParser.InvrseExprContext.class);
     }
 
     @Override
     public Temp generate() {
         Temp childTemp = new ExprTranslator(parseTree.getChild(1)).generate();
         Temp myTemp = new Temp();
-        TranslationHandler.write(myTemp.toString() + " := INV " + childTemp.toString());
+        TranslationHandler.write(myTemp + " := INV " + childTemp);
         childTemp.release();
         return myTemp;
     }

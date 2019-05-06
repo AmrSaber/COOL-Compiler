@@ -9,21 +9,19 @@ import translation.Translator;
 public class IfStmtTranslator extends Translator {
 
     public IfStmtTranslator(ParseTree parseTree){
-        super(parseTree);
-        if(!(parseTree instanceof CoolParser.IfStmtContext))
-            throw new RuntimeException();
+        super(parseTree, CoolParser.IfStmtContext.class);
     }
     @Override
     public Temp generate() {
         Temp myTemp = new Temp();
         String elseLabel = TranslationHandler.getNewLabel();
 
-        TranslationHandler.write("\n; expansion of the if condition's expression");
+        TranslationHandler.write("\n; ---{If Condition}---");
         Temp child1Temp = new ExprTranslator(parseTree.getChild(1)).generate();
-        TranslationHandler.write("\nIFFALSE " + child1Temp.toString() + " GOTO " + elseLabel);
+        TranslationHandler.write("IFFALSE " + child1Temp.toString() + " GOTO " + elseLabel);
         child1Temp.release();
 
-        TranslationHandler.write("; body of then");
+        TranslationHandler.write("\n; --{Then Body}--");
         Temp child2Temp = new ExprTranslator(parseTree.getChild(3)).generate();
         TranslationHandler.write(myTemp.toString() + " := " + child2Temp.toString());
         child2Temp.release();
@@ -31,18 +29,21 @@ public class IfStmtTranslator extends Translator {
         if(parseTree.getChildCount() > 5){
             String afterLabel = TranslationHandler.getNewLabel();
             TranslationHandler.write("GOTO " + afterLabel);
+            TranslationHandler.write("; --{End Then Body}--");
 
-            TranslationHandler.write("; body of else");
+            TranslationHandler.write("\n; --{Else Body}--");
             TranslationHandler.write(elseLabel + ":");
             Temp child3Temp = new ExprTranslator(parseTree.getChild(5)).generate();
             TranslationHandler.write(myTemp.toString() + " := " + child3Temp.toString());
+            TranslationHandler.write("; --{End Else Body}--");
 
             TranslationHandler.write(afterLabel + ":");
             child3Temp.release();
         }else{
             TranslationHandler.write(elseLabel + ":");
+            TranslationHandler.write("; --{End Then Body}--");
         }
-        TranslationHandler.write("\n");
+        TranslationHandler.write("; ---{End If Condition}---");
         return myTemp;
     }
 }

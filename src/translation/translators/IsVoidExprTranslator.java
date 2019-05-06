@@ -9,9 +9,7 @@ import translation.Translator;
 public class IsVoidExprTranslator extends Translator {
 
     public IsVoidExprTranslator(ParseTree parseTree){
-        super(parseTree);
-        if(!(parseTree instanceof CoolParser.IsvoidExprContext))
-            throw new RuntimeException();
+        super(parseTree, CoolParser.IsvoidExprContext.class);
     }
     @Override
     public Temp generate() {

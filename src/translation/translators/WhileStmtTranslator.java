@@ -8,9 +8,7 @@ import translation.Translator;
 
 public class WhileStmtTranslator extends Translator {
     public WhileStmtTranslator(ParseTree parseTree){
-        super(parseTree);
-        if(!(parseTree instanceof CoolParser.WhileStmtContext))
-            throw new RuntimeException();
+        super(parseTree, CoolParser.WhileStmtContext.class);
     }
 
     @Override
@@ -18,22 +16,21 @@ public class WhileStmtTranslator extends Translator {
         String beforeLabel = TranslationHandler.getNewLabel();
         String afterLabel = TranslationHandler.getNewLabel();
 
-        TranslationHandler.write("\n; While loop start");
+        TranslationHandler.write("\n; ---{While Loop}---");
         TranslationHandler.write(beforeLabel + ":");
 
-        TranslationHandler.write("\n; condition's expression");
         Temp child1Temp = new ExprTranslator(parseTree.getChild(1)).generate();
 
         TranslationHandler.write("IFFALSE " + child1Temp.toString() + " GOTO " + afterLabel);
         child1Temp.release();
 
-        TranslationHandler.write("\n; while loop body");
+        TranslationHandler.write("\n; --{While Loop Body}--");
         Temp child2Temp = new ExprTranslator(parseTree.getChild(3)).generate();
-        TranslationHandler.write("; end of while loop body\n");
+        TranslationHandler.write("; --{End While Loop Body}--\n");
 
         TranslationHandler.write("GOTO " + beforeLabel);
         TranslationHandler.write(afterLabel  + ":");
-        TranslationHandler.write("; end of While loop\n");
+        TranslationHandler.write("; ---{End While Loop}---");
 
         return child2Temp;
     }
