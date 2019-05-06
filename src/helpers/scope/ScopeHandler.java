@@ -45,11 +45,7 @@ public class ScopeHandler {
 
         while (currentScopeIndex < scopes.size()) {
             Scope currentScope = scopes.get(currentScopeIndex);
-            if (currentScope.map.containsKey(name)) {
-                Reference reference = currentScope.map.get(name);
-                reference.scopeName = currentScope.toString();
-                return reference;
-            }
+            if (currentScope.hasReference(name)) return currentScope.getReference(name);
             ++currentScopeIndex;
         }
 
@@ -57,9 +53,7 @@ public class ScopeHandler {
     }
 
     public static void addReference(Reference reference) {
-        Scope topScope = scopes.get(0);
-        topScope.map.put(reference.name, reference);
-        reference.scopeName = topScope.toString();
+        scopes.get(0).addReference(reference);
     }
 
     public static String getCurrentScopeName() {
