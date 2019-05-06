@@ -18,6 +18,7 @@ public class LetStmtTranslator extends Translator {
     @Override
     public Temp generate() {
         ScopeHandler.pushScope();
+        Temp exprTemp = null;
 
         for (int i = 0; i < parseTree.getChildCount(); ++i) {
             ParseTree child = parseTree.getChild(i);
@@ -27,12 +28,12 @@ public class LetStmtTranslator extends Translator {
 
             // this will be in the end of the production
             if (parseTree.getChild(i) instanceof CoolParser.ExprContext) {
-                Temp exprTemp = new ExprTranslator(child).generate();
                 if (exprTemp != null) exprTemp.release();
+                exprTemp = new ExprTranslator(child).generate();
             }
         }
 
         ScopeHandler.popScope();
-        return null;
+        return exprTemp;
     }
 }
