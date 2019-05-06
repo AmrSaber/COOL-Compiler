@@ -71,3 +71,6 @@ fabric.properties
 
 // output of parser
 *-cst
+
+// output of 3 address code
+*-TAC

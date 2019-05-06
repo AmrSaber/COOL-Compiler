@@ -20,4 +20,8 @@ public class Scope {
     public String toString() {
         return String.format("S%d", this.id);
     }
+
+    public static void reset() {
+        nextId = 0;
+    }
 }

@@ -68,5 +68,6 @@ public class ScopeHandler {
 
     public static void clear() {
         scopes.clear();
+        Scope.reset();
     }
 }

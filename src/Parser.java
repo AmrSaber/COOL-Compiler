@@ -9,6 +9,7 @@ import java.io.IOException;
 public class Parser {
 
     private CoolParser coolParser;
+    private ParseTree cachedParseTree;
 
     public Parser(Lexer lexer) {
         coolParser = new CoolParser(lexer.getTokensStream());
@@ -37,7 +38,8 @@ public class Parser {
 
     public ParseTree parse() {
         // coolParser.addParseListener(new CoolBaseListener());
-        return coolParser.globals();
+        if (cachedParseTree == null) cachedParseTree = coolParser.globals();
+        return cachedParseTree;
     }
 
 }
