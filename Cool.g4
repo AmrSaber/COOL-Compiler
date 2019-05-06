@@ -6,7 +6,7 @@ program:
 
 // class definition
 classDefiniton:
-    CLASS ID (INHERITS (type|ID) | ) OPENING_CURLY_BRACKET
+    CLASS ID (INHERITS (type|ID))? OPENING_CURLY_BRACKET
         globals
     CLOSING_CURLY_BRACKET SEMICOLON # classDefinitionRule;
 
@@ -30,7 +30,8 @@ expr: expr op=(OP_ADD|OP_SUB|RELOP_EQ|RELOP_LE|RELOP_LT) term | term;
 term: term op=(OP_MUL|OP_DIV) value | value;
 
 value: (
-     assignmentStmt
+     OPENING_BRACKET expr CLOSING_BRACKET
+   | assignmentStmt
    | featureCall
    | ifStmt
    | caseStmt
@@ -48,7 +49,6 @@ value: (
    | FALSE
    | NUM
    | ID
-   | OPENING_BRACKET expr CLOSING_BRACKET
    ) //memberAccess?
    ;
 
@@ -58,12 +58,12 @@ assignmentStmt:
     ;
 
 featureCall:
-    ID OPENING_BRACKET (exprList|) CLOSING_BRACKET
+    ID OPENING_BRACKET exprList? CLOSING_BRACKET
     # featureCallRule
     ;
 
 memberAccess :
-    (AT (type|ID) | ) DOT (featureCall| ID) memberAccess
+    (AT (type|ID))? DOT (featureCall| ID) memberAccess
     |
     ;
 
@@ -72,7 +72,7 @@ ifStmt :
     IF expr THEN
         expr
     (ELSE
-        expr | )
+        expr)?
     FI
     # ifStmtRule
     ;
@@ -212,7 +212,7 @@ ID: [a-zA-Z_][a-zA-Z0-9_]*;
 
 WS: [ \t\r\n]+ -> skip;
 SINGLELINECOMMENT  : '--' .*? '\n' -> channel(HIDDEN) ;
-BlockComment: '*' (BlockComment|.)*? '*' -> channel(HIDDEN);
+BlockComment: '(*' (BlockComment|.)*? '*)' -> channel(HIDDEN);
 
 ErrorChar : .;
 

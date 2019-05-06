@@ -1,18 +1,19 @@
+someVar: Int <- 2;
+someOtherVar: Float <- 2.5;
+
 main(someThing: Int) : SELF_TYPE {
-	someThing <- let c: Int, d: Int in {
-        d = if c = 3
+	someThing <- let c: Int <- 1, d: Int <- 2 in {
+        c <- d = if c = 3
         then 4
         else 8
         fi;
 
+        c <- c + d + someThing + someVar;
         c;
     }
  };
 
 let s: String <- "abc" in s = "amr"
-
-someVar: Int <- 2 + 3 * (4 + 5) + 6;
-someOtherVar: Float <- 2.5;
 
 while someVar < someOtherVar LOOP
 someVar <- someVar + 10
@@ -24,6 +25,10 @@ someOtherVar <- case someVar of
     z: Float => 4;
 esac
 
+someVar <- 2 + 3 * (4 + 5) + 6;
+
 someVar <- let c: Int <- 2, d: Int <- 3 in c = d
 
-main(someVar, someOtherVar)
+Res: Int <- main(someVar, someOtherVar);
+
+looooong: Int <- 1 + 2 + 3 + 4 + 5 + 6 + 7 * 8 + 9;
