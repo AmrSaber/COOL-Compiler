@@ -14,6 +14,7 @@ import java.io.OutputStreamWriter;
 public class TranslationHandler {
     private static BufferedWriter output_stream = new BufferedWriter(new OutputStreamWriter(System.out));
     private static int nextLabel = 0;
+    private static int indentations = 0;
 
     public static void translate(ParseTree tree) {
         new GlobalsTranslator(tree).generate();
@@ -29,9 +30,13 @@ public class TranslationHandler {
      * this function is supposed to write the string given to it to
      * the set stream.
      * */
-    public static void write(String s) {
+    public static void write(String text) {
+        // generate indentations
+        StringBuilder indents = new StringBuilder();
+        for (int i = 0 ; i < indentations ; ++i) indents.append("\t");
+
         try{
-            output_stream.write(s + "\n");
+            output_stream.write(String.format("%s%s\n", indents, text));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -51,5 +56,13 @@ public class TranslationHandler {
     public static String getNewLabel() {
         ++nextLabel;
         return "_L" + (nextLabel - 1);
+    }
+
+    public static void addIndentation() {
+        ++indentations;
+    }
+
+    public static void removeIndentation(){
+        --indentations;
     }
 }

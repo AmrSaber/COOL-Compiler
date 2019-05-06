@@ -30,7 +30,9 @@ public class FeatureDefinitionTranslator extends Translator {
         TranslationHandler.write("");
 
         // generate feature body
+        TranslationHandler.addIndentation();
         Temp ret = this.generateFeatureBody(parseTree);
+        TranslationHandler.removeIndentation();
 
         if(ret == null){
             ret = new Temp();

@@ -16,12 +16,17 @@ public class IfStmtTranslator extends Translator {
         Temp myTemp = new Temp();
         String elseLabel = TranslationHandler.getNewLabel();
 
-        TranslationHandler.write("\n; ---{If Condition}---");
+        TranslationHandler.write("");
+        TranslationHandler.write("; ---{If Condition}---");
+        TranslationHandler.addIndentation();
+
         Temp child1Temp = new ExprTranslator(parseTree.getChild(1)).generate();
         TranslationHandler.write("IFFALSE " + child1Temp.toString() + " GOTO " + elseLabel);
         child1Temp.release();
 
-        TranslationHandler.write("\n; --{Then Body}--");
+        TranslationHandler.write("");
+        TranslationHandler.write("; --{Then Body}--");
+        TranslationHandler.addIndentation();
         Temp child2Temp = new ExprTranslator(parseTree.getChild(3)).generate();
         TranslationHandler.write(myTemp.toString() + " := " + child2Temp.toString());
         child2Temp.release();
@@ -29,20 +34,31 @@ public class IfStmtTranslator extends Translator {
         if(parseTree.getChildCount() > 5){
             String afterLabel = TranslationHandler.getNewLabel();
             TranslationHandler.write("GOTO " + afterLabel);
+
+            TranslationHandler.removeIndentation();
             TranslationHandler.write("; --{End Then Body}--");
 
-            TranslationHandler.write("\n; --{Else Body}--");
+            TranslationHandler.write("");
+            TranslationHandler.write("; --{Else Body}--");
+            TranslationHandler.addIndentation();
+
             TranslationHandler.write(elseLabel + ":");
             Temp child3Temp = new ExprTranslator(parseTree.getChild(5)).generate();
             TranslationHandler.write(myTemp.toString() + " := " + child3Temp.toString());
+
+            TranslationHandler.removeIndentation();
             TranslationHandler.write("; --{End Else Body}--");
 
             TranslationHandler.write(afterLabel + ":");
             child3Temp.release();
         }else{
             TranslationHandler.write(elseLabel + ":");
+
+            TranslationHandler.removeIndentation();
             TranslationHandler.write("; --{End Then Body}--");
         }
+
+        TranslationHandler.removeIndentation();
         TranslationHandler.write("; ---{End If Condition}---");
         return myTemp;
     }

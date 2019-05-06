@@ -24,7 +24,7 @@ public class ScopeHandler {
         scopes.add(0, newScope);
         TranslationHandler.write(
                 String.format(
-                        "; ======[Enter scope %s]======",
+                        "\r; ======[Enter scope %s]======",
                         ScopeHandler.getCurrentScopeName()
                 )
         );
@@ -33,7 +33,7 @@ public class ScopeHandler {
     public static void popScope() {
         TranslationHandler.write(
                 String.format(
-                        "; ======[Exit scope %s]======\n",
+                        "\r; ======[Exit scope %s]======\n",
                         ScopeHandler.getCurrentScopeName()
                 )
         );

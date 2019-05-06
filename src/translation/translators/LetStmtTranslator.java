@@ -18,6 +18,8 @@ public class LetStmtTranslator extends Translator {
         ScopeHandler.pushScope();
         Temp exprTemp = null;
 
+        TranslationHandler.write("; ---{Let}---");
+        TranslationHandler.write("; --{Let Variable Declaration}--");
         for (int i = 0; i < parseTree.getChildCount(); ++i) {
             ParseTree child = parseTree.getChild(i);
             if (parseTree.getChild(i) instanceof CoolParser.VariableDeclarationContext) {
@@ -26,11 +28,20 @@ public class LetStmtTranslator extends Translator {
 
             // this will be in the end of the production
             if (parseTree.getChild(i) instanceof CoolParser.ExprContext) {
+                TranslationHandler.write("; --{End Let Variable Declaration}--");
+                TranslationHandler.write("");
+                TranslationHandler.write("; --{Let Body}--");
+                TranslationHandler.addIndentation();
+
                 if (exprTemp != null) exprTemp.release();
                 exprTemp = new ExprTranslator(child).generate();
+
+                TranslationHandler.write("; --{End Let Body}--");
+                TranslationHandler.removeIndentation();
             }
         }
 
+        TranslationHandler.write("; ---{End Let}---");
         ScopeHandler.popScope();
         return exprTemp;
     }

@@ -16,7 +16,10 @@ public class WhileStmtTranslator extends Translator {
         String beforeLabel = TranslationHandler.getNewLabel();
         String afterLabel = TranslationHandler.getNewLabel();
 
-        TranslationHandler.write("\n; ---{While Loop}---");
+        TranslationHandler.write("");
+        TranslationHandler.write("; ---{While Loop}---");
+        TranslationHandler.addIndentation();
+
         TranslationHandler.write(beforeLabel + ":");
 
         Temp child1Temp = new ExprTranslator(parseTree.getChild(1)).generate();
@@ -24,12 +27,19 @@ public class WhileStmtTranslator extends Translator {
         TranslationHandler.write("IFFALSE " + child1Temp.toString() + " GOTO " + afterLabel);
         child1Temp.release();
 
-        TranslationHandler.write("\n; --{While Loop Body}--");
+        TranslationHandler.write("");
+        TranslationHandler.write("; --{While Loop Body}--");
+        TranslationHandler.addIndentation();
+
         Temp child2Temp = new ExprTranslator(parseTree.getChild(3)).generate();
+
+        TranslationHandler.removeIndentation();
         TranslationHandler.write("; --{End While Loop Body}--\n");
 
         TranslationHandler.write("GOTO " + beforeLabel);
         TranslationHandler.write(afterLabel  + ":");
+
+        TranslationHandler.removeIndentation();
         TranslationHandler.write("; ---{End While Loop}---");
 
         return child2Temp;

@@ -15,7 +15,9 @@ public class CaseStmtTranslator extends Translator {
 
     @Override
     public Temp generate() {
-        TranslationHandler.write("\n; ---{Case Statement}---");
+        TranslationHandler.write("");
+        TranslationHandler.write("; ---{Case Statement}---");
+        TranslationHandler.addIndentation();
 
         Temp child1Temp = new ExprTranslator(parseTree.getChild(1)).generate();
 
@@ -27,7 +29,9 @@ public class CaseStmtTranslator extends Translator {
 
         String afterAll = TranslationHandler.getNewLabel();
         for(int i = 3, j = 1 ; i+6 < parseTree.getChildCount() ; i += 6, ++j) {
-            TranslationHandler.write(String.format("\n; --{Case #%d}--", j));
+            TranslationHandler.write("");
+            TranslationHandler.write(String.format("; --{Case #%d}--", j));
+            TranslationHandler.addIndentation();
 
             String nextLabel = TranslationHandler.getNewLabel();
             String childIType = parseTree.getChild(i + 2).getText();
@@ -36,15 +40,18 @@ public class CaseStmtTranslator extends Translator {
             TranslationHandler.write(myRes.toString() + " := " + childITemp.toString());
             TranslationHandler.write("GOTO " + afterAll);
 
+            TranslationHandler.removeIndentation();
             TranslationHandler.write(String.format("; --{End Case #%d}--", j));
 
             TranslationHandler.write(nextLabel + ":");
             childITemp.release();
         }
-        TranslationHandler.write("\n" + afterAll + ":");
+        TranslationHandler.write("");
+        TranslationHandler.write(afterAll + ":");
         myType.release();
 
-        TranslationHandler.write("\n; ---{End Case Statement}---");
+        TranslationHandler.removeIndentation();
+        TranslationHandler.write("; ---{End Case Statement}---");
         return myRes;
     }
 }

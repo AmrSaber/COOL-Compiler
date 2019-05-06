@@ -1,4 +1,4 @@
-main(someThing: Int) : SELF_TYPE { {
+main(someThing: Int) : SELF_TYPE {
 	someThing <- let c: Int, d: Int in {
         d = if c = 3
         then 4
@@ -6,9 +6,8 @@ main(someThing: Int) : SELF_TYPE { {
         fi;
 
         c;
-    };
-
-} };
+    }
+ };
 
 let s: String <- "abc" in s = "amr"
 
