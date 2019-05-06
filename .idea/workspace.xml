@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11c067e6-3ce6-4397-aa9b-c6572c57d78f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cool.g4" beforeDir="false" afterPath="$PROJECT_DIR$/Cool.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cool_source/expr.cl" beforeDir="false" afterPath="$PROJECT_DIR$/cool_source/expr.cl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/scope/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/scope/Scope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cool_source/primes.cl" beforeDir="false" afterPath="$PROJECT_DIR$/cool_source/primes.cl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/Cool.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/Cool.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/CoolBaseListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/CoolBaseVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/CoolLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/CoolLexer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/CoolLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/CoolListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/CoolParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gen/CoolVisitor.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,17 +32,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cool.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="205" lean-forward="true" selection-start-line="205" selection-end-line="205" />
+            <state relative-caret-position="168">
+              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cool_source/primes.cl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="847">
+              <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -38,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cool_source/ctoi.cl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
+            <state relative-caret-position="49">
               <caret line="40" column="2" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
             </state>
           </provider>
@@ -47,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cool_source/expr.cl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+            <state relative-caret-position="372">
+              <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -60,24 +72,6 @@
               <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/helpers/scope/Scope.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="988">
-              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-              <folding>
-                <element signature="e#502#503#0" expanded="true" />
-                <element signature="e#529#530#0" expanded="true" />
-                <element signature="e#341#342#0" expanded="true" />
-                <element signature="e#393#394#0" expanded="true" />
-                <element signature="e#1313#1346#0" expanded="true" />
-                <element signature="e#427#428#0" expanded="true" />
-                <element signature="e#453#454#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,6 +96,7 @@
       <find>ID</find>
       <find>WS</find>
       <find>generate</find>
+      <find>SEMICOLON</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -151,13 +146,13 @@
         <option value="$PROJECT_DIR$/src/translation/TranslationHandler.java" />
         <option value="$PROJECT_DIR$/src/translation/translators/FeatureDefinitionTranslator.java" />
         <option value="$PROJECT_DIR$/src/translation/translators/FeatureCallTranslator.java" />
-        <option value="$PROJECT_DIR$/cool_source/primes.cl" />
-        <option value="$PROJECT_DIR$/Cool.g4" />
         <option value="$PROJECT_DIR$/cool_source/ctoi.cl" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/helpers/scope/ScopeHandler.java" />
-        <option value="$PROJECT_DIR$/cool_source/expr.cl" />
         <option value="$PROJECT_DIR$/src/helpers/scope/Scope.java" />
+        <option value="$PROJECT_DIR$/Cool.g4" />
+        <option value="$PROJECT_DIR$/cool_source/expr.cl" />
+        <option value="$PROJECT_DIR$/cool_source/primes.cl" />
       </list>
     </option>
   </component>
@@ -665,27 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cool_source/primes.cl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cool_source/ctoi.cl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="40" column="2" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Cool.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="205" lean-forward="true" selection-start-line="205" selection-end-line="205" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -696,29 +670,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/helpers/scope/ScopeHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="47" column="88" selection-start-line="47" selection-start-column="88" selection-end-line="47" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1609#1610#0" expanded="true" />
-            <element signature="e#1663#1664#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cool_source/expr.cl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/helpers/scope/Scope.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="323">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="e#502#503#0" expanded="true" />
             <element signature="e#529#530#0" expanded="true" />
@@ -728,6 +683,48 @@
             <element signature="e#427#428#0" expanded="true" />
             <element signature="e#453#454#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers/scope/ScopeHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="58" column="35" lean-forward="true" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1467#1468#0" expanded="true" />
+            <element signature="e#1520#1521#0" expanded="true" />
+            <element signature="e#1570#1571#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cool_source/ctoi.cl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="40" column="2" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cool.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cool_source/expr.cl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cool_source/primes.cl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="847">
+          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
         </state>
       </provider>
     </entry>

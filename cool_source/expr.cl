@@ -13,21 +13,26 @@ main(someThing: Int) : SELF_TYPE {
     }
  };
 
-let s: String <- "abc" in s = "amr"
+let s: String <- "abc" in s = "amr";
 
 while someVar < someOtherVar LOOP
 someVar <- someVar + 10
-POOL
+POOL;
 
 someOtherVar <- case someVar of
     x: Int => 2;
     y: String => 3;
     z: Float => 4;
-esac
+esac;
 
 someVar <- 2 + 3 * (4 + 5) + 6;
 
-someVar <- let c: Int <- 2, d: Int <- 3 in c = d
+-- someNotDeclaredVar <- 12
+
+someVar <- while someOtherVar < 10 loop {
+    someOtherVar <- someOtherVar + 1;
+    someOtherVar;
+} pool;
 
 Res: Int <- main(someVar, someOtherVar);
 

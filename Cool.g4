@@ -11,18 +11,13 @@ classDefiniton:
     CLOSING_CURLY_BRACKET SEMICOLON # classDefinitionRule;
 
 globals:
-    (
-          (variableDeclaration SEMICOLON)
-        | featureDefinition
-        | expr
-    )*
-    ;
+    ( (variableDeclaration | featureDefinition | expr) SEMICOLON )*;
 
 // method definition
 featureDefinition:
     ID OPENING_BRACKET formalsList? CLOSING_BRACKET COLON (ID|type) OPENING_CURLY_BRACKET
         expr
-    CLOSING_CURLY_BRACKET SEMICOLON
+    CLOSING_CURLY_BRACKET
     ;
 
 // statements

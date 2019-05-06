@@ -56,4 +56,4 @@ while true loop {
   -- we could think of "halt" as SIGTERM.
   if stop <= testee then abort() fi;
 
-} pool
+} pool;
