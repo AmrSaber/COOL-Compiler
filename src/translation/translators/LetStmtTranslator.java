@@ -19,7 +19,6 @@ public class LetStmtTranslator extends Translator {
     public Temp generate() {
         ScopeHandler.pushScope();
 
-        TranslationHandler.write("\n; Enter scope " + ScopeHandler.getCurrentScopeName());
         for (int i = 0; i < parseTree.getChildCount(); ++i) {
             ParseTree child = parseTree.getChild(i);
             if (parseTree.getChild(i) instanceof CoolParser.VariableDeclarationContext) {
@@ -33,7 +32,6 @@ public class LetStmtTranslator extends Translator {
             }
         }
 
-        TranslationHandler.write("\n; Exit scope " + ScopeHandler.getCurrentScopeName());
         ScopeHandler.popScope();
         return null;
     }
