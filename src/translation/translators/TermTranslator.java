@@ -21,21 +21,25 @@ public class TermTranslator extends Translator {
         }
 
         Temp termTemp = new TermTranslator(parseTree.getChild(0)).generate();
+        String termString = termTemp.toString();
+
         Temp valueTemp = new ValueTranslator(parseTree.getChild(2)).generate();
+        String valueString = valueTemp.toString();
+
+        valueTemp.release();
+        termTemp.release();
+
         Temp myRes = new Temp();
 
         TranslationHandler.write(
                 String.format(
                         "%s := %s %s %s\t",
                         myRes,
-                        termTemp,
+                        termString,
                         parseTree.getChild(1).getText(),
-                        valueTemp
+                        valueString
                 )
         );
-
-        valueTemp.release();
-        termTemp.release();
 
         return myRes;
     }

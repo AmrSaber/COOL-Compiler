@@ -23,21 +23,25 @@ public class ExprTranslator extends Translator {
         }
 
         Temp exprTemp = new ExprTranslator(parseTree.getChild(0)).generate();
+        String exprString = exprTemp.toString();
+
         Temp termTemp = new TermTranslator(parseTree.getChild(2)).generate();
+        String termString = termTemp.toString();
+
+        exprTemp.release();
+        termTemp.release();
+
         Temp myRes = new Temp();
 
         TranslationHandler.write(
                 String.format(
                         "%s := %s %s %s\t",
                         myRes,
-                        exprTemp,
+                        exprString,
                         parseTree.getChild(1).getText(),
-                        termTemp
+                        termString
                 )
         );
-
-        exprTemp.release();
-        termTemp.release();
 
         return myRes;
     }

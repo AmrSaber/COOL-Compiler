@@ -1,5 +1,7 @@
 package translation;
 
+import helpers.scope.Reference;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,7 +9,10 @@ public class Temp {
 
     private static Set<Integer> taken = new HashSet<>();
 
-    private int index;
+    private int index = -1;
+    private String constValue = null;
+    private Reference reference = null;
+    private boolean isReleased = false;
 
     public Temp(){
         index = 0;
@@ -15,18 +20,32 @@ public class Temp {
         taken.add(index);
     }
 
+    public Temp(String constValue) {
+        this.constValue = constValue;
+    }
+
+    public Temp(Reference reference) {
+        this.reference = reference;
+    }
+
 
     public void release(){
-        if(index == -1)
+        if(isReleased)
             throw new RuntimeException("This temp should have been already released");
-        taken.remove(index);
-        index = -1;
+
+        if (index != -1) taken.remove(index);
+        isReleased = true;
     }
 
     @Override
     public String toString(){
-        if(index == -1)
+        if(isReleased)
             throw new RuntimeException("This temp should have been already released");
-        return String.format("_t%d", index);
+
+        if (this.index != -1) return String.format("_t%d", this.index);
+        if (this.constValue != null) return this.constValue;
+        if (this.reference != null) return this.reference.toString();
+
+        throw new RuntimeException("This temp no valid value!!");
     }
 }

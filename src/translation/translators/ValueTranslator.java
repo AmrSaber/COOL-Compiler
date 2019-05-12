@@ -69,27 +69,17 @@ public class ValueTranslator extends Translator {
         } else if (child instanceof CoolParser.ExprContext) {
             return new ExprTranslator(child).generate();
         } else if (child.getChildCount() == 0) {
-            Temp res = new Temp();
-            String rhs;
 
             int tokenType = ((TerminalNodeImpl) child).symbol.getType() - 1;
             String tokenName = CoolLexer.ruleNames[tokenType];
 
             if (tokenName.equals("ID")) {
                 Reference reference = ScopeHandler.getReference(child.getText());
-                rhs = reference.toString();
+                return new Temp(reference);
             } else {
-                rhs = child.getText();
+                return new Temp(child.getText());
             }
 
-            TranslationHandler.write(
-                    String.format(
-                            "%s := %s",
-                            res,
-                            rhs
-                    )
-            );
-            return res;
         } else {
             throw new RuntimeException("Unknown child node with " + child.getClass());
         }
